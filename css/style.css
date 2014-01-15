@@ -111,7 +111,8 @@ section.download {
 	color: #F0F0F0;
 }
 
-section.download a {
+section.download a,
+footer a {
 	color: #F0F0F0;
 }
 
