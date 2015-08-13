@@ -184,6 +184,27 @@ footer a {
 	color: #F0F0F0;
 }
 
+pre,
+code {
+	font-family: monospace;
+	background-color: white;
+	padding: 0 3px;
+}
+
+
+pre {
+	margin: 8px 0;
+	margin-left: 30px;
+	border-left: 1px solid gray;
+	padding: 3px 0px 9px 30px;
+	overflow-x: auto;
+}
+
+pre > code {
+	background-color: transparent;
+	padding: 0;
+}
+
 /* Mobile Devices */
 @media screen and (max-width: 480px) {
 	header {
@@ -228,6 +249,10 @@ footer a {
 	section.hero p {
 		font: 100%/1em 'PT Sans', Arial, Helvetica, sans-serif;
 		color: #F0F0F0;
+	}
+
+	pre {
+		margin-left: 0;
 	}
 }
 
