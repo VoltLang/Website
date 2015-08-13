@@ -9,3 +9,6 @@ github_username: VoltLang
 
 # Build settings
 markdown: kramdown
+
+kramdown:
+  input: GFM
