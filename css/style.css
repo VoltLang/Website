@@ -89,20 +89,7 @@ section.hero p {
 	color: #F0F0F0;
 }
 
-div.feature {
-	width: 33.1%;
-	display: inline-block;
-}
-
-.break {
-	display: inline-block;
-	color: #F0F0F0;
-}
-
-.break:before {
-	content: "\2022";
-}
-
+/* Download section on the main page */
 section.download {
 	padding: 1em 10%;
 	background: #0098DB;
@@ -111,11 +98,20 @@ section.download {
 	color: #F0F0F0;
 }
 
-section.download a,
-footer a {
+section.download a {
 	color: #F0F0F0;
 }
 
+div.break {
+	display: inline-block;
+	color: #F0F0F0;
+}
+
+div.break:before {
+	content: "\2022";
+}
+
+/* Only used on the frontpage. */
 main {
 	background: #F0F0F0;
 	padding: 25px 0;
@@ -144,16 +140,17 @@ main li {
 	float: left;
 }
 
-h1 {
+main h1 {
 	font: 275%/2.75em 'PT Sans', Arial, Helvetica, sans-serif;
 }
 
-h2 {
+main h2 {
 	font: 100%/1em 'PT Sans', Arial, Helvetica, sans-serif;
 	font-weight: bold;
 	padding: 1em 0 1.75em;
 }
 
+/* Used in page.html layout */
 article {
 	border-top: 4px solid #0098DB;
 	background: #F0F0F0;
@@ -183,6 +180,10 @@ footer p {
 	color: #F0F0F0;
 }
 
+footer a {
+	color: #F0F0F0;
+}
+
 /* Mobile Devices */
 @media screen and (max-width: 480px) {
 	header {
@@ -204,11 +205,11 @@ footer p {
 		font: 75%/.75em 'PT Sans', Arial, Helvetica, sans-serif;
 	}
 
-	.break {
+	div.break {
 		display: block;
 	}
 
-	.break:before {
+	div.break:before {
 		content: " ";
 	}
 
