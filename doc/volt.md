@@ -1,4 +1,5 @@
 ---
+title: Documentation
 layout: page
 ---
 ## The Volt Programming Language ##

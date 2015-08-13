@@ -1,5 +1,5 @@
 # Site settings
-title: Volt
+title: "Volt"
 description: > # this means to ignore newlines until "baseurl:"
   Volt Programing Language
 baseurl: "" # the subpath of your site, e.g. /blog/
