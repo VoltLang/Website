@@ -136,14 +136,16 @@ article {
 pre,
 code {
 	font-family: monospace;
-	background-color: white;
+	background-color: $volt-color-code-bg;
+	color: $volt-color-code-txt;
 	padding: 0px 3px; /* overwritten in pre */
+	border: 1px solid $volt-color-code-border;
+	border-radius: 3px;
 }
 
 pre {
 	margin: 8px 0;
 	margin-left: 30px;
-	border-left: 1px solid gray;
 	padding: 8px 0px 9px 30px;
 	overflow-x: auto;
 
