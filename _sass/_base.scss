@@ -9,8 +9,14 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,header,section,p
 
 b {font-weight: bold;}
 
+html {
+	min-height: 100%;
+	position: relative;
+}
+
 body {
 	line-height: 1;
+	margin: 0 0 80px 0;
 }
 
 ol,ul {
