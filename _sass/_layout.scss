@@ -1,0 +1,234 @@
+/* CSS Styling for http://volt-lang.org/
+ *
+ * Copyright (c) 2013 Micheal Harker. All Rights Reserved.
+ *
+ * Like what you see? Why not contact me? http://michealharker.com/
+ */
+
+/* Volt Website */
+body {
+	border-top: 4px solid $volt-color-blue;
+	background: $volt-black;
+}
+
+/* Used on all pages */
+header {
+	padding: 10px 10%;
+
+	nav {
+		float: right;
+
+		a {
+			margin: 40px 10px;
+			padding: 5px 10px;
+			color: $volt-color-white;
+			text-transform: uppercase;
+			text-decoration: none;
+			display: inline-block;
+			transition: .5s ease-out;
+		}
+
+		a:hover,
+		a.active {
+			background: $volt-color-white;
+			color: $volt-black;
+		}
+	}
+}
+
+/* Download section on the main page */
+section.download {
+	padding: 1em 10%;
+	background: $volt-color-blue;
+	text-align: center;
+	vertical-align: middle;
+	color: $volt-color-white;
+
+	a {
+		color: $volt-color-white;
+	}
+
+	div.break {
+		display: inline-block;
+		color: $volt-color-white;
+	}
+
+	div.break:before {
+		content: "\2022";
+	}
+}
+
+/* The big fancy text on the main page */
+section.hero {
+	padding: 10% 10%;
+	
+	h1 {
+		font: 275%/2.75em $volt-font;
+		color: $volt-color-white;
+	}
+
+	p {
+		font: 150%/1.5em $volt-font;
+		color: $volt-color-white;
+	}
+}
+
+/* The tree text areas on the main page */
+main {
+	background: $volt-color-white;
+	padding: 25px 0;
+	display: block;
+
+	ul {
+		width: 80%;
+		margin: 0 auto;
+	}
+
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+
+	li {
+		width: 31.33%;
+		padding-left: 1%;
+		padding-right: 1%;
+		float: left;
+	}
+
+	h1 {
+		font: 275%/2.75em $volt-font;
+	}
+
+	h2 {
+		font: 100%/1em $volt-font;
+		font-weight: bold;
+		padding: 1em 0 1.75em;
+	}
+}
+
+
+
+/* Used in page.html layout */
+article {
+	border-top: 4px solid $volt-color-blue;
+	background: $volt-color-white;
+	padding: 10px 10%;
+
+	h1 {
+		font: 150%/1em $volt-font;
+		font-weight: bold;
+		padding: 1.75em 0 0.75em;
+	}
+
+	h2 {
+		font: 100%/1em $volt-font;
+		font-weight: bold;
+		padding: 1.50em 0 0.50em;
+	}
+}
+
+pre,
+code {
+	font-family: monospace;
+	background-color: white;
+	padding: 0px 3px; /* overwritten in pre */
+}
+
+pre {
+	margin: 8px 0;
+	margin-left: 30px;
+	border-left: 1px solid gray;
+	padding: 8px 0px 9px 30px;
+	overflow-x: auto;
+
+	> code {
+		background-color: transparent;
+		border: 0;
+		padding: 0;
+	}
+}
+
+footer {
+	border-top: 4px solid $volt-color-blue;
+	padding: 10px 10%;
+
+	p {
+		font: 10pt $volt-font;
+		line-height: 1.75em;
+		color: $volt-color-white;
+	}
+
+	a {
+		color: $volt-color-white;
+	}
+}
+
+/* Mobile Devices */
+@media screen and (max-width: 480px) {
+	header {
+		padding: 10px;
+		text-align: center;
+
+		nav {
+			float: left;
+			width: 100%;
+			a {
+				display: inline-block;
+				margin: 10px;
+			}
+		}
+	}
+
+	section.download {
+		font: 75%/.75em $volt-font;
+
+		div.break {
+			display: block;
+
+			&:before {
+				content: " ";
+			}
+		}
+	}
+
+	main li {
+		width: 80%;
+		padding: 10%;
+		display: block;
+	}
+
+	section.hero {
+		h1 {
+			padding: 2em 0 2em;
+			font: 100%/1em $volt-font;
+			font-weight: bold;
+		}
+
+		p {
+			font: 100%/1em $volt-font;
+			color: $volt-color-white;
+		}
+	}
+
+	pre {
+		margin-left: 0;
+	}
+}
+
+@media screen and (max-width: 480px) and (orientation : portrait) {
+	header nav a {
+		display: block;
+		margin: 10px;
+		
+
+		&:last-child {
+			margin-bottom: 50px;
+		}
+	}
+}

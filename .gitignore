@@ -1,3 +1,4 @@
 _site
 _plugins
 .jekyll-metadata
+.sass-cache

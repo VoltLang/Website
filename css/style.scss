@@ -1,0 +1,12 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+$volt-color-blue: #0098DB;
+$volt-color-white: #F0F0F0;
+$volt-black: #1F1F1F;
+$volt-font: 'PT Sans', Arial, Helvetica, sans-serif;
+
+@import "base";
+@import "layout";
