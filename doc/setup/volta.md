@@ -27,7 +27,8 @@ Building Volt requires a D compiler as well as llvm::
 
 Instead of installing GDC on Ubuntu or Debian you can use the
 [D-APT](http://d-apt.sourceforge.net/) repository to install DMD.
-Alternativly you can also use the [official binaries](http://dlang.org/download.html).
+Alternativly you can also use the
+[official binaries](http://dlang.org/download.html).
 
 
 ## Mac ##
@@ -89,7 +90,8 @@ that in the Volta directory. Run make (Digital Mars or GNU make should work) and
 You'll need to link with the [BoehmGC](http://www.hboehm.info/gc/). The MingW
 you compiled LLVM should suffice.
 
-These directions need to be expanded, but hopefully this has pointed you in the right direction.
+These directions need to be expanded, but hopefully this has pointed you in the
+right direction.
 
 
 ## Other ##
