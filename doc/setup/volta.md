@@ -26,8 +26,8 @@ Building Volt requires a D compiler as well as llvm::
 
 
 Instead of installing GDC on Ubuntu or Debian you can use the
-[D-APT](http://d-apt.sourceforge.net/>) repository to install DMD.
-Alternativly you can also use the [official binaries](http://dlang.org/download.html>).
+[D-APT](http://d-apt.sourceforge.net/) repository to install DMD.
+Alternativly you can also use the [official binaries](http://dlang.org/download.html).
 
 
 ## Mac ##
@@ -95,8 +95,8 @@ These directions need to be expanded, but hopefully this has pointed you in the 
 ## Other ##
 
 For other platforms you need probably need to compile it you can get the latest
-version from here https://bitbucket.org/goshawk/gdc/wiki/Home Cross compiling on
-Linux to Windows is confirmed working.
+version from [here](https://bitbucket.org/goshawk/gdc/wiki/Home) Cross compiling
+on Linux to Windows is confirmed working.
 
 
 # Building #
@@ -117,20 +117,20 @@ link with the runtime and [Watt](https://github.com/VoltLang/Watt/). Volt has
 a special configuration file which you can use for compiler options you always
 want to include
 
-  --stdlib-file
-  %@execdir%/rt/libvrt-%@arch%-%@platform%.bc
-  --stdlib-I
-  %@execdir%/rt/src
-  --stdlib-fi le
-  %@execdir%/../Watt/libwatt-%@arch%-%@platform%.bc
-  --stdlib-I
-  %@execdir%/../Watt/src
-  -L
-  %@execdir%/rt
-  -l
-  gc
-  -l
-  dl
+    --stdlib-file
+    %@execdir%/rt/libvrt-%@arch%-%@platform%.bc
+    --stdlib-I
+    %@execdir%/rt/src
+    --stdlib-fi le
+    %@execdir%/../Watt/libwatt-%@arch%-%@platform%.bc
+    --stdlib-I
+    %@execdir%/../Watt/src
+    -L
+    %@execdir%/rt
+    -l
+    gc
+    -l
+    dl
 
 You need to place this file as `volt.conf` next to the Volt binary.
 Every line represents one argument passed via commandline. `%@execdir%` gets
