@@ -6,7 +6,7 @@ title: Expressions
 # Expressions
 
 This document goes over the specific steps the parser takes semantically parse
-expressions. The below snippet explains some predefined identifiers.
+expressions. The snippet below explains some predefined identifiers.
 
     global int var;
     alias aliasType = int;
@@ -27,18 +27,18 @@ expressions. The below snippet explains some predefined identifiers.
 
 # General Exp Notes
 
-Verify that the expression has a sideeffect. This can be done on the Context
-if a expression has a side-effect (function call and the like set the flag).
+Verify that the expression has a side-effect. This can be done on the Context
+if an expression has a side-effect (function calls and the like set the flag).
 
 Verify expression is a value with isValueExp(), should assume that the given
-exp's has varified its own children. So BinOp and the like should be
-concidered a value.
+exp's has varified its own children. So BinOp and the so on should be
+considered a values.
 
 # IdentifierExp
 
-Examples of checking on IdentifierExp. If a identifier isn't found this is a
+Examples of checking an IdentifierExp. If an identifier isn't found this is an
 error, we should not check if the IdentifierExp value is directly turned into a
-value since it can be used to lookup types e.i. `aliasType.max`. 
+value since it can be used to lookup types e.g. `aliasType.max`. 
 
     var = invalidSymbol; // error: No identifier 'invalidSymbol' found.
     var = aliasType;  // error: Type 'aliasType' (ake 'int') used as expression.
@@ -56,11 +56,11 @@ Examples of no effect checking.
     func;       // error: Expression has no effect.
 
 
-# PostifxExp
+# PostfixExp
 
 ## Identifier
 
-Concider the code below:
+Consider the code below:
 
     .pkg.mod.Foo.staticVar.feild.prop.ufcs();
 
