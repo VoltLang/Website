@@ -4,7 +4,19 @@ title: Documentation
 permalink: /doc/
 ---
 ## Gettings started ##
-[Volta](setup/volta.html)
+ * [Volta](setup/volta.html)
+
+## Language ##
+The language [page](volt.html) is the main documentation for the langauge.
+Shortcuts to [lexical](volt.html#lexical), [module](volt.html#module) and
+[simple types](volt.html#simple-types).
+
+## Compiler ##
+[Overview](overview.html) has a high level view of how the compiler works, and
+is a good start if want to get started on hacking on the compiler. Delving
+deeper into the inner works [this](expressions.html) page details how
+expressions should be semantically handled.
 
 ## Other ##
-[Language](volt.html) [Overview](overview.html) [Change](change.html)
+ * [Language](volt.html)
+ * [Change](change.html)

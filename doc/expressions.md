@@ -19,6 +19,8 @@ examples.
     int ufcs(int val) { return val; }
     int ufcs(Foo f) { return f.val; }
 
+    global Foo fooInstance;
+
     class Foo
     {
     	global Foo staticVar;
@@ -71,9 +73,11 @@ Examples of checking side-effects.
 
 ## Identifier
 
-We intruduce the concept of postfix identifier chains (in this context known
-as chains). Consider the following code, it is a long chain starting with a
-IdentifierExp and ends before the call.
+When talking about postifx identifiers we introduce the concept of postfix
+identifier chains (in this context known as chains) to better explain and
+more clearly show the operations done on postfix identifiers. Consider the
+following code, it is a long chain starting with a IdentifierExp and ends
+before the call.
 
     .pkg.mod.Foo.staticVar.field.prop.ufcs();
 
@@ -86,3 +90,8 @@ case above we should check that the field excist in the Type of staticVar
 and that it is not staic/type. For prop we should transform that into a call.
 For ufcs we need to have the postfix call to correctly resolve the function
 lookup and checking.
+
+## Call
+
+    func();
+    fooInstance.foo();
