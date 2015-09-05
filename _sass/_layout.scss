@@ -120,6 +120,10 @@ article {
 	background: $volt-color-white;
 	padding: 10px 10%;
 
+	strong {
+		font-weight: bold;
+	}
+
 	h1 {
 		font: 150%/1em $volt-font;
 		font-weight: bold;
@@ -127,12 +131,17 @@ article {
 	}
 
 	h2 {
-		font: 100%/1em $volt-font;
+		font: 125%/1em $volt-font;
 		font-weight: bold;
 		margin-top: 1.50em;
 	}
 
-	p {
+	h3 {
+		font-weight: bold;
+		margin-top: 1.25em;
+	}
+
+	p,ul {
 		margin-top: $article-tags-margin;
 	}
 }
