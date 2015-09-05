@@ -9,6 +9,8 @@ This document goes over the specific steps the compiler takes semantically proce
 expressions. The rest of the document will refer to the following snippet for its
 examples.
 
+    module pkg.mod;
+
     global int var;
     alias aliasType = int;
     alias aliasVar = var;
@@ -26,6 +28,12 @@ examples.
     	@property Foo prop() { return this; }
     }
 
+## Glossary
+ * **Scope**: Named identifier that you can lookup more identifiers in,
+   includes Named types, packages and modules.
+ * **UFCS**: Uniform function call syntax
+   [wiki](https://en.wikipedia.org/wiki/Uniform_Function_Call_Syntax)
+
 # General Exp Notes
 
 Verify that the expression has a side-effect. This can be done on the Context
@@ -42,11 +50,13 @@ error, we should not check if the IdentifierExp value is directly turned into a
 value since it can be used to lookup types e.g. `aliasType.max`. 
 
     var = invalidSymbol; // error: No identifier 'invalidSymbol' found.
-    var = aliasType;  // error: Type 'aliasType' (ake 'int') used as expression.
-    var = Foo;        // error: Type 'Foo' (ake 'test.Foo') used as expression.
+    var = pkg;           // error: Package 'pkg' used as a value.
+    var = pkg.mod;       // error: Module 'pkg.mod' used as a value.
+    var = aliasType;     // error: Type 'aliasType' (ake 'int') used as value.
+    var = Foo;           // error: Type 'Foo' (ake 'test.Foo') used as value.
     var = aliasVar;
     var = propGet;
-    var = func;       // Type error (missing call).
+    var = func;          // error: <implicit conversion error>
     var = func();
 
 Examples of checking side-effects.
@@ -61,7 +71,18 @@ Examples of checking side-effects.
 
 ## Identifier
 
-Consider the code below:
+We intruduce the concept of postfix identifier chains (in this context known
+as chains). Consider the following code, it is a long chain starting with a
+IdentifierExp and ends before the call.
 
     .pkg.mod.Foo.staticVar.field.prop.ufcs();
 
+The first this we need to do is find where the chain goes from looking up
+symbols in scopes to a variable or property function, this is done from left
+to right. In the IR this is done from the inner most child out.
+
+After that we need to do other types of checking and transformation. In the
+case above we should check that the field excist in the Type of staticVar
+and that it is not staic/type. For prop we should transform that into a call.
+For ufcs we need to have the postfix call to correctly resolve the function
+lookup and checking.
