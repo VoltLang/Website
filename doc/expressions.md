@@ -5,8 +5,9 @@ title: Expressions
 
 # Expressions
 
-This document goes over the specific steps the parser takes semantically parse
-expressions. The snippet below explains some predefined identifiers.
+This document goes over the specific steps the compiler takes semantically process
+expressions. The rest of the document will refer to the following snippet for its
+examples.
 
     global int var;
     alias aliasType = int;
@@ -31,8 +32,8 @@ Verify that the expression has a side-effect. This can be done on the Context
 if an expression has a side-effect (function calls and the like set the flag).
 
 Verify expression is a value with isValueExp(), should assume that the given
-exp's has varified its own children. So BinOp and the so on should be
-considered a values.
+exp's has verified its own children. So BinOp and the so on should be
+considered values.
 
 # IdentifierExp
 
@@ -48,7 +49,7 @@ value since it can be used to lookup types e.g. `aliasType.max`.
     var = func;       // Type error (missing call).
     var = func();
 
-Examples of no effect checking.
+Examples of checking side-effects.
 
     aliasVar;   // error: Expression has no effect.
     var;        // error: Expression has no effect.
@@ -62,5 +63,5 @@ Examples of no effect checking.
 
 Consider the code below:
 
-    .pkg.mod.Foo.staticVar.feild.prop.ufcs();
+    .pkg.mod.Foo.staticVar.field.prop.ufcs();
 
