@@ -28,6 +28,7 @@ examples.
     	int val;
     	Foo field;
     	@property Foo prop() { return this; }
+	void doSomething() {}
     }
 
 ## Glossary
@@ -93,5 +94,11 @@ lookup and checking.
 
 ## Call
 
+In the compiler Call only operates on CreateDelegateExp and ExpReference
+pointing to functions, variables of type function, variables of type
+delegates. CreateDelegateExp is a internal ir node used created by postfix
+identifier.
+
     func();
-    fooInstance.foo();
+    fooInstance.doSomething();
+
