@@ -5,7 +5,7 @@ title: Expressions
 
 # Expressions
 
-This document goes over the specific steps the compiler takes semantically process
+This document goes over the specific steps the compiler takes to semantically process
 expressions. The rest of the document will refer to the following snippet for its
 examples.
 
@@ -42,8 +42,8 @@ examples.
 Verify that the expression has a side-effect. This can be done on the Context
 if an expression has a side-effect (function calls and the like set the flag).
 
-Verify expression is a value with isValueExp(), should assume that the given
-exp's has verified its own children. So BinOp and the so on should be
+Verify an expression is a value with isValueExp(), it should assume that the given
+exp has verified its own children. So BinOp and the like should be
 considered values.
 
 # IdentifierExp
@@ -74,30 +74,29 @@ Examples of checking side-effects.
 
 ## Identifier
 
-When talking about postifx identifiers we introduce the concept of postfix
+When talking about postfix identifiers we'll introduce the concept of postfix
 identifier chains (in this context known as chains) to better explain and
 more clearly show the operations done on postfix identifiers. Consider the
-following code, it is a long chain starting with a IdentifierExp and ends
+following code, it is a long chain starting with an IdentifierExp and ends
 before the call.
 
     .pkg.mod.Foo.staticVar.field.prop.ufcs();
 
-The first this we need to do is find where the chain goes from looking up
+The first thing we need to do is find where the chain goes from looking up
 symbols in scopes to a variable or property function, this is done from left
 to right. In the IR this is done from the inner most child out.
 
 After that we need to do other types of checking and transformation. In the
-case above we should check that the field excist in the Type of staticVar
-and that it is not staic/type. For prop we should transform that into a call.
-For ufcs we need to have the postfix call to correctly resolve the function
-lookup and checking.
+case above we should check that the field exists in the staticVar's Type
+and that it is an instance type. The prop identifier should be transformed
+into a call. For ufcs we need to have the postfix call to correctly resolve
+the function lookup and checking.
 
 ## Call
 
-In the compiler Call only operates on CreateDelegateExp and ExpReference
-pointing to functions, variables of type function, variables of type
-delegates. CreateDelegateExp is a internal ir node used created by postfix
-identifier.
+In the compiler we can only call CreateDelegateExp and ExpReferences
+pointing to functions, variables with a type of a function or a delegate.
+CreateDelegateExp is a internal ir node created from a postfix identifier.
 
     func();
     fooInstance.doSomething();
