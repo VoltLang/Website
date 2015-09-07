@@ -9,27 +9,27 @@ This document goes over the specific steps the compiler takes to semantically pr
 expressions. The rest of the document will refer to the following snippet for its
 examples.
 
-    module pkg.mod;
+	module pkg.mod;
 
-    global int var;
-    alias aliasType = int;
-    alias aliasVar = var;
-    int func() { return 4; }
-    @property int propGet() { return 4; }
-    int ufcs(int val) { return val; }
-    int ufcs(Foo f) { return f.val; }
+	global int var;
+	alias aliasType = int;
+	alias aliasVar = var;
+	int func() { return 4; }
+	@property int propGet() { return 4; }
+	int ufcs(int val) { return val; }
+	int ufcs(Foo f) { return f.val; }
 
-    global Foo fooInstance;
+	global Foo fooInstance;
 
-    class Foo
-    {
-    	global Foo staticVar;
+	class Foo
+	{
+		global Foo staticVar;
 
-    	int val;
-    	Foo field;
-    	@property Foo prop() { return this; }
-	void doSomething() {}
-    }
+		int val;
+		Foo field;
+		@property Foo prop() { return this; }
+		void doSomething() {}
+	}
 
 ## Glossary
  * **Scope**: Named identifier that you can lookup more identifiers in,
@@ -52,22 +52,22 @@ Examples of checking an IdentifierExp. If an identifier isn't found this is an
 error, we should not check if the IdentifierExp value is directly turned into a
 value since it can be used to lookup types e.g. `aliasType.max`. 
 
-    var = invalidSymbol; // error: No identifier 'invalidSymbol' found.
-    var = pkg;           // error: Package 'pkg' used as a value.
-    var = pkg.mod;       // error: Module 'pkg.mod' used as a value.
-    var = aliasType;     // error: Type 'aliasType' (ake 'int') used as value.
-    var = Foo;           // error: Type 'Foo' (ake 'test.Foo') used as value.
-    var = aliasVar;
-    var = propGet;
-    var = func;          // error: <implicit conversion error>
-    var = func();
+	var = invalidSymbol; // error: No identifier 'invalidSymbol' found.
+	var = pkg;           // error: Package 'pkg' used as a value.
+	var = pkg.mod;       // error: Module 'pkg.mod' used as a value.
+	var = aliasType;     // error: Type 'aliasType' (ake 'int') used as value.
+	var = Foo;           // error: Type 'Foo' (ake 'test.Foo') used as value.
+	var = aliasVar;
+	var = propGet;
+	var = func;          // error: <implicit conversion error>
+	var = func();
 
 Examples of checking side-effects.
 
-    aliasVar;   // error: Expression has no effect.
-    var;        // error: Expression has no effect.
-    propGet;
-    func;       // error: Expression has no effect.
+	aliasVar;   // error: Expression has no effect.
+	var;        // error: Expression has no effect.
+	propGet;
+	func;       // error: Expression has no effect.
 
 
 # PostfixExp
@@ -80,7 +80,7 @@ more clearly show the operations done on postfix identifiers. Consider the
 following code, it is a long chain starting with an IdentifierExp and ends
 before the call.
 
-    .pkg.mod.Foo.staticVar.field.prop.ufcs();
+	.pkg.mod.Foo.staticVar.field.prop.ufcs();
 
 The first thing we need to do is find where the chain goes from looking up
 symbols in scopes to a variable or property function, this is done from left
@@ -98,6 +98,6 @@ In the compiler we can only call CreateDelegateExp and ExpReferences
 pointing to functions, variables with a type of a function or a delegate.
 CreateDelegateExp is a internal ir node created from a postfix identifier.
 
-    func();
-    fooInstance.doSomething();
+	func();
+	fooInstance.doSomething();
 
