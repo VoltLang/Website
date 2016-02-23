@@ -76,7 +76,7 @@ Then, copy `libgc.la` and `libcord.la` to the `rt` folder.
 ## Windows ##
 
 The only compiler that has been used to compile Volta on Windows is DMD. Install
-DMD and MinGW. You'll want a 32 bit MingW that outputs DWARF exception
+DMD and MinGW. You'll want a 32 bit MinGW that outputs DWARF exception
 information.
 
 Using MinGW's bash prompt, compile LLVM -- be sure to use
@@ -87,7 +87,7 @@ probably the simplest place. Run `implib /p:128 LLVM.lib <thellvmdll>` and place
 that in the Volta directory. Run make (Digital Mars or GNU make should work) and
  with a bit of luck, you should have a working volt.exe.
 
-You'll need to link with the [BoehmGC](http://www.hboehm.info/gc/). The MingW
+You'll need to link with the [BoehmGC](http://www.hboehm.info/gc/). The MinGW
 you compiled LLVM should suffice.
 
 These directions need to be expanded, but hopefully this has pointed you in the
