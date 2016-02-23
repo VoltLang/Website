@@ -16,10 +16,11 @@ to the C interface are incompatible with the current binding to LLVM.
 
 ## Linux ##
 
-Building Volt requires a D compiler as well as llvm:
+Building Volt requires a D compiler as well as llvm, to build programs we
+also need [BoehmGC](http://www.hboehm.info/gc/).
 
     # Ubuntu / Debian
-    $ sudo apt-get install dmd llvm
+    $ sudo apt-get install dmd llvm libgc-dev
 
     # Arch Linux
     $ sudo pacman -S dmd llvm
