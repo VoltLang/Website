@@ -22,7 +22,7 @@ Building Volt requires a D compiler as well as llvm:
     $ sudo apt-get install dmd llvm
 
     # Arch Linux
-    $ sudo pacman -S dmd libphobos llvm
+    $ sudo pacman -S dmd llvm
 
 
 Instead of using the packaged DMD binaries on Ubuntu or Debian you can use the
