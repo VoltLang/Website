@@ -16,16 +16,16 @@ to the C interface are incompatible with the current binding to LLVM.
 
 ## Linux ##
 
-Building Volt requires a D compiler as well as llvm::
+Building Volt requires a D compiler as well as llvm:
 
     # Ubuntu / Debian
-    $ sudo apt-get install gdc llvm
+    $ sudo apt-get install dmd llvm
 
     # Arch Linux
     $ sudo pacman -S dmd libphobos llvm
 
 
-Instead of installing GDC on Ubuntu or Debian you can use the
+Instead of using the packaged DMD binaries on Ubuntu or Debian you can use the
 [D-APT](http://d-apt.sourceforge.net/) repository to install DMD.
 Alternativly you can also use the
 [official binaries](http://dlang.org/download.html).
