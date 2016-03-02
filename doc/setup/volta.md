@@ -120,20 +120,27 @@ link with the runtime and [Watt](https://github.com/VoltLang/Watt/). Volt has
 a special configuration file which you can use for compiler options you always
 want to include
 
-    --stdlib-file
+    --if-stdlib
     %@execdir%/rt/libvrt-%@arch%-%@platform%.bc
-    --stdlib-I
-    %@execdir%/rt/src
-    --stdlib-fi le
+    --if-stdlib
     %@execdir%/../Watt/libwatt-%@arch%-%@platform%.bc
-    --stdlib-I
+    --if-stdlib
+    -I
+    %@execdir%/rt/src
+    --if-stdlib
+    -I
     %@execdir%/../Watt/src
-    -L
-    %@execdir%/rt
+    --if-stdlib
     -l
     gc
+    --if-stdlib
+    --if-linux
     -l
     dl
+    --if-stdlib
+    --if-linux
+    -l
+    rt
 
 You need to place this file as `volt.conf` next to the Volt binary.
 Every line represents one argument passed via commandline. `%@execdir%` gets
