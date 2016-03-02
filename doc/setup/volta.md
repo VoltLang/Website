@@ -123,7 +123,7 @@ want to include
     --if-stdlib
     %@execdir%/rt/libvrt-%@arch%-%@platform%.o
     --if-stdlib
-    %@execdir%/../Watt/libwatt-%@arch%-%@platform%.o
+    %@execdir%/../Watt/bin/libwatt-%@arch%-%@platform%.o
     --if-stdlib
     -I
     %@execdir%/rt/src
