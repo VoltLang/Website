@@ -121,9 +121,9 @@ a special configuration file which you can use for compiler options you always
 want to include
 
     --if-stdlib
-    %@execdir%/rt/libvrt-%@arch%-%@platform%.bc
+    %@execdir%/rt/libvrt-%@arch%-%@platform%.o
     --if-stdlib
-    %@execdir%/../Watt/libwatt-%@arch%-%@platform%.bc
+    %@execdir%/../Watt/libwatt-%@arch%-%@platform%.o
     --if-stdlib
     -I
     %@execdir%/rt/src
