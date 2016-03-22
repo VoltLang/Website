@@ -9,9 +9,9 @@ As Volta is written in D, a compiler for D is needed. GDC, LDC and DMD should
 be able to compile Volt. Once Volt is capable enough the compiler will be
 ported to Volt and become self-hosting.
 
-Volt uses LLVM as a backend to generate binary code. Version 3.6.x is the least
-supported version. Version 3.7.x has not been tested and it looks like changes
-to the C interface are incompatible with the current binding to LLVM.
+Volt uses LLVM as a backend to generate binary code. The CI system builds
+against 3.8.0 so should be safest. Version 3.7.1 is the least supported version.
+Version 3.7.0 is known broken due to the C interface was broken in that release. 
 
 
 ## Linux ##
