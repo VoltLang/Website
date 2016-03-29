@@ -2,10 +2,10 @@
 New syntax
 ---
 
-The idea is that when we are introducing symbols into a context you always start with a keyword followed by a identifier. Tho its debatable if requiring `var` for all variables is desirable.
+The idea is that when we are introducing symbols into a context you always start with a keyword followed by an identifier. Though it's debatable if requiring `var` for all variables is desirable.
 
 ```
-// As it is now
+// As it is now:
 int x;
 int func1() {}
 alias al = int;
@@ -13,7 +13,7 @@ import io = watt.io;
 class Class {}
 struct Struct {}
 
-// New unified syntax
+// New unified syntax:
 var x : int;
 fn func1() int {}
 alias al = int;
@@ -26,7 +26,7 @@ struct Struct {}
 Optional GC
 ---
 
-Adding a option for the compiler to change the default of functions to `@nogc`. Make sure we can compile runtime and watt with option enabled.
+Adding an option for the compiler to change the default for functions to `@nogc`. Make sure we can compile the runtime and watt with this option enabled.
 
 
 Explicit this
@@ -35,15 +35,15 @@ Explicit this
 Explicit `this` arguments to member functions. It also removes the need to tag functions with `static`, `global` or `local`.
 
 ```
-// As it is now
+// As it is now:
 int func1(int arg) {...}
 int func2(int arg) const {...}
 
-// With explicit this
+// With explicit this:
 int func1(this, int arg) {...}
 int func2(const this, int arg) {...}
 
-// Different syntax
+// Different syntax:
 fn func1(this, int arg) int {...}
 fn func2(const this, int arg) int {...}
 ```
@@ -52,7 +52,7 @@ fn func2(const this, int arg) int {...}
 Better reference control
 ---
 
-Building on top the explicit `this` idea we can now control if this is a copy or reference. For classes references would be required.  Maybe we should move away from `ref` to `&` for brevity.
+Building on top of the explicit `this` idea we can now control if this is a copy or a reference. For classes, references would be required.  Maybe we should move away from `ref` to `&` for brevity.
 
 ```
 fn func1(ref this, int arg) int {...}
@@ -61,10 +61,10 @@ fn func2(this&, int arg) int {...}
 ```
 
 
-Inbuilt string
+Builtin string
 ---
 
-Making `string` be a inbuilt type allows for several optimizations to be made. Since string is immutable it allows us to cache the hash for the string. The string length is now in the `object`instead leading to less memory usage at referee site. It allows for transparent [interning](https://en.wikipedia.org/wiki/String_interning) of strings, this gives two benefits: one equality becomes a pointer compare; applications that uses many common strings (like a compiler) can see memory savings.
+Making `string` be a builtin type allows for several optimizations to be made. Since string is immutable it allows us to cache the hash for the string. The string length is now in the `object` instead, leading to less memory usage at the referee site. It allows for transparent [interning](https://en.wikipedia.org/wiki/String_interning) of strings, this gives two benefits. One, equality becomes a pointer compare. And two, applications that use many common strings (like a compiler) could see memory usage reductions.
 
 ```
 struct __String
@@ -76,7 +76,7 @@ struct __String
 }
 ```
 
-Building referencing counting strings on the regular gc string would be easy.
+Building reference counting strings on the regular gc string would be easy.
 
 It would also be possible to implicitly cast the new string to `immutable(char)[]` and  `const(char)[]`.
 
@@ -84,10 +84,10 @@ It would also be possible to implicitly cast the new string to `immutable(char)[
 Bitcast (aka recast)
 ---
 
-In both Volt and D cast is a semantical smart cast. But sometimes you just want to take the bits you have and changing the interpretation of them.
+In both Volt and D cast is a semantical smart cast. But sometimes you just want to take the bits you have and change their interpretation.
 
 ```
-// Notice 32 vs 64 bits.
+// Note 32 vs 64 bits
 int foo = -1;
 long minusOne = cast(long)foo; // Sign extend.
 long uintMax = recast(long)foo; // No sign extend.
@@ -95,8 +95,8 @@ long uintMax = recast(long)foo; // No sign extend.
 assert (minusOne == -1);
 assert (uintMax == uint.max);
 
-// Without recast
+// Without recast:
 long uintMax2 = cast(long)cast(uint)foo;
 ```
 
-This opens up a bit of a rabbit hole, certain casts should only be recasts and not semantic casts: pointers to and from integers; signed to and from unsigned. Should we error on these and require the use of recast? (hint yes)
+This opens up a bit of a rabbit hole, certain casts should only be recasts and not semantic casts: to and from pointers and integers; to and from signed and unsigned. Should we error on these and require the use of recast? (hint: yes)
