@@ -23,6 +23,27 @@ struct Struct {}
 ```
 
 
+New integer types
+---
+
+Make the builtin types be on a more uniform form. Bool should be left as is. Rust has the most compact types and also easiest to write. Linux kerenl looks a lot like rust except it has `s8` instead of `i8`.
+
+```
+// Volt/D
+ byte  short  int  long index_t
+ubyte ushort uint ulong size_t
+
+// Rust
+i8 i16 i32 i64 isize
+u8 u16 u32 u64 usize
+       f32 f64
+
+// Go
+int  int8  int16  int32  int64
+uint uint8 uint16 uint32 uint64 uintptr
+float32 float64
+```
+
 Optional GC
 ---
 
