@@ -1,3 +1,7 @@
+---
+title: Ideas for Volt
+layout: page
+---
 
 New syntax
 ---
