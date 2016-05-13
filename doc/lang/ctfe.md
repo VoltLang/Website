@@ -10,21 +10,20 @@ CTFE in Volt
 Rules
 ---
 
+A `#run` expression is a boundary. Only non mutably indirect data and arrays thereof can be sent through.
 
-A `#run` expression is a broundery. The data crossing the boundery is limited, only non-mutable indirect types and arrays of non-mutable indirect types.
-
-Function calls inside of a boundery may internally and in calls to other functions and use mutable indirect types like classes and array of classes. One caveant is that `local` and `global` variables may not be read or assigned. Basically functions need to be `pure`ish since they can mutate given classes and arrays.
+Function calls inside of the boundary may internally, and in calls to other functions, use mutably indirect types like classes and array of classes. One caveat is that `local` and `global` variables may not be read or assigned. Functions essentially need to be `pure`ish because they can mutate objects and arrays.
 
 
 Implementation
 ---
 
-The first implementation doesn't need to support Classes, Structs and other named types. So we don't need to copy them. That leaves inbuilt types, lets focus on PrimitiveTypes and Arrays.
+The first implementation doesn't need to support Classes, Structs, or other named types. So we don't need to copy them. That leaves builtin types, let's focus on PrimitiveTypes and Arrays.
 
 
 Example
 ---
-Shows all features, some not implemented yet.
+Demonstrates all features, some not implemented yet.
 
 ```
 void internalFunc(Clazz c, u32 f)
