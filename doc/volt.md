@@ -252,7 +252,7 @@ The above declares a function `areEqual`, that takes two `int`s and returns a `b
 
 ```
  void doNothing() {
-	 return;
+	return;
  }
 ```
 
@@ -268,7 +268,7 @@ Usually, parameters are pass-by-value.
 
 ```
 void makeThree(int var) {
-	 var = 3;
+	var = 3;
 }
 
 ...
@@ -281,7 +281,7 @@ However, if you mark a parameter as `ref`, the value will be updated.
 
 ```
 void makeThree(ref int var) {
-	 var = 3;
+	var = 3;
 }
 
 ...
@@ -328,7 +328,7 @@ int sum(...) {
 	int result;
 	foreach (tid; _typeids) {
 		if (tid.type != object.TYPE_INT) {
-		    throw new Exception("sum: expected int");
+			throw new Exception("sum: expected int");
 		}
 		result += va_arg!int(vl);
 	}
@@ -448,9 +448,9 @@ They've a different name because of *inheritance* they behave differently. A cla
 
 ```
 class D : C {
-	 int getAnotherInt() {
-		 return 24;
-	 }
+	int getAnotherInt() {
+		return 24;
+	}
 }
 ```
 
@@ -670,3 +670,4 @@ auto newArray = new oldArray[..];
 ```
 
 The above syntax can be used to copy associate arrays, too.
+

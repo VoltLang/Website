@@ -11,8 +11,7 @@ These guidelines go for related tools like Tesla too.
 
 Indentation
 ---
-Set your editor to emit real tabs, and display them with a size of four spaces when editing the Volt or Watt code.
-It's left to your better judgement whether or not you need to wrap your code or not (consider it after 80-100 columns or so). When wrapping, use tabs to indent to the level of the last line, then uses spaces to align to after the first open paren (or first character otherwise). The `\TTT` represent tabs, the `.` characters represent spaces.
+Set your editor to emit real tabs, and display them with a size of four spaces when editing the Volt or Watt code. It's left to your better judgement whether or not you need to wrap your code or not (consider it after 80-100 columns or so). When wrapping, use tabs to indent to the level of the last line, then uses spaces to align to after the first open paren (or first character otherwise). The `\TTT` represent tabs, the `.` characters represent spaces.
 
 ```
 \TTTaFunction(aLongParameter,
@@ -38,7 +37,7 @@ struct Person
 }
 ```
 
-For statements with an opening brace, the brace is on the same line as the statement itself. Unlike functions, there is a space between the keyword and the opening paren. 
+For statements with an opening brace, the brace is on the same line as the statement itself. Unlike functions, there is a space between the keyword and the opening paren.
 
 ```
 while (i < 10) {
@@ -138,3 +137,4 @@ Names should be descriptive, but not overly long.
 Other
 ---
 Undoubtedly, there are countless little things that we've missed here. If you're not sure about something, check for an example in existing source files, or just ask somebody. Thank you for reading this *dynamic* and *exciting* document.
+

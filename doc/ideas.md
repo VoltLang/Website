@@ -113,3 +113,4 @@ long uintMax2 = cast(long)cast(uint)foo;
 ```
 
 This opens up a bit of a rabbit hole, certain casts should only be recasts and not semantic casts: to and from pointers and integers; to and from signed and unsigned. Should we error on these and require the use of recast? (hint: yes)
+
