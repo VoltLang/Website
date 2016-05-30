@@ -3,7 +3,8 @@ layout: page
 title: Expressions
 ---
 
-# Expressions
+Expressions
+===
 
 This document goes over the specific steps the compiler takes to semantically process
 expressions. The rest of the document will refer to the following snippet for its
@@ -31,13 +32,16 @@ examples.
 		void doSomething() {}
 	}
 
-## Glossary
+Glossary
+---
+
  * **Scope**: Named identifier that you can lookup more identifiers in,
    includes Named types, packages and modules.
  * **UFCS**: Uniform function call syntax
    [wiki](https://en.wikipedia.org/wiki/Uniform_Function_Call_Syntax)
 
-# General Exp Notes
+General Exp Notes
+===
 
 Verify that the expression has a side-effect. This can be done on the Context
 if an expression has a side-effect (function calls and the like set the flag).
@@ -46,7 +50,8 @@ Verify an expression is a value with isValueExp(), it should assume that the giv
 exp has verified its own children. So BinOp and the like should be
 considered values.
 
-# IdentifierExp
+IdentifierExp
+---
 
 Examples of checking an IdentifierExp. If an identifier isn't found this is an
 error, we should not check if the IdentifierExp value is directly turned into a
@@ -70,9 +75,11 @@ Examples of checking side-effects.
 	func;       // error: Expression has no effect.
 
 
-# PostfixExp
+PostfixExp
+===
 
-## Identifier
+Identifier
+---
 
 When talking about postfix identifiers we'll introduce the concept of postfix
 identifier chains (in this context known as chains) to better explain and
@@ -92,7 +99,8 @@ and that it is an instance type. The prop identifier should be transformed
 into a call. For ufcs we need to have the postfix call to correctly resolve
 the function lookup and checking.
 
-## Call
+Call
+---
 
 In the compiler we can only call CreateDelegateExp and ExpReferences
 pointing to functions, variables with a type of a function or a delegate.
