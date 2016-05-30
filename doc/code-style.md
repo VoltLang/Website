@@ -5,14 +5,12 @@ layout: page
 
 Volt Projects Code Guidelines
 ===
-
 So you want to contribute to the Volta compiler or its standard library, Watt, but you don't want people yelling at you for using the wrong indentation settings or putting a brace where it shouldn't go? You've come to the right place.
 
 These guidelines go for related tools like Tesla too.
 
 Indentation
 ---
-
 Set your editor to emit real tabs, and display them with a size of four spaces when editing the Volt or Watt code.
 It's left to your better judgement whether or not you need to wrap your code or not (consider it after 80-100 columns or so). When wrapping, use tabs to indent to the level of the last line, then uses spaces to align to after the first open paren (or first character otherwise). The `\TTT` represent tabs, the `.` characters represent spaces.
 
@@ -25,7 +23,6 @@ It's left to your better judgement whether or not you need to wrap your code or 
 
 Braces
 ---
-
 For functions, structs, classes, and the like, the opening brace goes on a line of it's own, as does the closing brace.
 
 ```
@@ -74,7 +71,6 @@ assert(typeid(i32).size == 4);
 
 Expressions
 ---
-
 When casting, there should be no space between the cast and the cast expression.
 
 ```
@@ -95,9 +91,7 @@ transmit(importantData);
 
 Classes And Friends
 ---
-
-Classes should be laid out in a particular order. Most of this applies to structs etc, just skip over what doesn't apply (no fields for an interface, etc).
-Instead of attaching the access (``public``, ``private``, ``protected``, etc) directly to the declaration, use ``public:`` or ``private:`` etc blocks and put all like declarations in that block. Of course, not every class will have every block.
+Classes should be laid out in a particular order. Most of this applies to structs etc, just skip over what doesn't apply (no fields for an interface, etc). Instead of attaching the access (``public``, ``private``, ``protected``, etc) directly to the declaration, use ``public:`` or ``private:`` etc blocks and put all like declarations in that block. Of course, not every class will have every block.
 
 ```
 class AClass
@@ -125,7 +119,6 @@ private:
 
 Naming
 ---
-
 Modules and packages are all lower case. Types start with an upper case, and each word is distinguished with an upper case letter. Functions and variables are the same, but they start with a lower case letter.
 
 ```
@@ -144,5 +137,4 @@ Names should be descriptive, but not overly long.
 
 Other
 ---
-
 Undoubtedly, there are countless little things that we've missed here. If you're not sure about something, check for an example in existing source files, or just ask somebody. Thank you for reading this *dynamic* and *exciting* document.
