@@ -14,7 +14,7 @@ Indentation
 ---
 
 Set your editor to emit real tabs, and display them with a size of four spaces when editing the Volt or Watt code.
-It's left to your better judgement whether or not you need to wrap your code or not (consider it after 80-100 columns or so). When wrapping, use tabs to indent to the level of the last line, then uses spaces to align to after the first open paren (or first character otherwise). The \TTT represent tabs, the . characters represent spaces.
+It's left to your better judgement whether or not you need to wrap your code or not (consider it after 80-100 columns or so). When wrapping, use tabs to indent to the level of the last line, then uses spaces to align to after the first open paren (or first character otherwise). The `\TTT` represent tabs, the `.` characters represent spaces.
 
 ```
 \TTTaFunction(aLongParameter,
@@ -53,7 +53,7 @@ if (foo) {
 }
 ```
 
-For switch statements, the cases are on the same identation as the
+For switch statements, the cases are on the same identation level as the switch keyword, statements inside of a case is indented one level.
 
 ```
 switch (enumArr[index]) with (EnumType) {
