@@ -368,4 +368,47 @@ The output will be:
 
 You can use functions from modules too. In fact, `import watt.io;` imports a module from the *Watt* standard library that contains the `writeln` function we've been using to output values!
 
+## Getting Input
 
+Getting input typed from the user will be useful for some of the examples in the next chapter. We can use the `readln` function, also found in `watt.io` to get it. When `readln` is called, the program will stop and wait for the user to press enter. Once they do, any text that they have written will be returned in a string.
+
+	import watt.io;
+	
+	fn main() i32
+	{
+		writeln("Please enter your name and press enter.");
+		name := readln();
+		writeln("Hello,");
+		writeln(name);
+		return 0;
+	}
+
+Output:
+
+	Please enter your name and press enter.
+	<name><enter>
+	Hello,
+	<name>
+
+We can turn strings into numbers with the toInt function found in watt.conv:
+
+	import watt.io;
+	import watt.conv;
+	
+	fn main() i32
+	{
+		writeln("Enter a number.");
+		n := toInt(readln());
+		writeln("Your number doubled is");
+		writeln(n * 2);
+		return 0;
+	}
+
+Output:
+
+	Enter a number.
+	<number><enter>
+	Your number doubled is
+	<number times two>
+
+If the user types a non-digit character, the program will crash. We'll cover how to handle errors more gracefully later.
