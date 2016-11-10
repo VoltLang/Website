@@ -153,3 +153,188 @@ Like the array literals, associative array literals open with `[`, have values s
 These return a `bool` value.
 
 `==` is the equality operator. If the two sides of this expression are the same, it returns `true`. Otherwise, it returns `false`.
+
+	import watt.io;
+	
+	fn main() i32
+	{
+		str := readln();
+		if (str == "banana") {
+			writeln("you wrote 'banana'");
+		} else {
+			writeln("you didn't write 'banana'");
+		}
+	}
+
+`!=` is the inequality operator. It's like `==`, but instead returns `true` if both sides are *not* the same, otherwise it returns `false`.
+
+	import watt.conv;
+	import watt.io;
+	
+	fn main() i32
+	{
+		writeln("I'm thinking of a number between one and one hundred. What is it?");
+		n := toInt(readln());
+		if (n != 32) {
+			writeln("you didn't get it!");
+		} else {
+			writeln("correct!");
+		}
+		return 0;
+	}
+
+The `<` and `>` and operators returns true if the left side is less than or greater than the right side, respectively.
+
+	import watt.io;
+	
+	fn main() i32
+	{
+		if (5 > 2) {
+			writeln("five is bigger than two");
+		}
+		if (2 < 5) {
+			writeln("two is less than five");
+		}
+		return 0;
+	}
+
+Output:
+
+	five is bigger than two
+	two is less than five
+
+The `<=` returns true if the left side is less than or equal to the right, and `>=` returns true if the right side is greater than or equal to the right.
+
+	5 >= 4  false
+	5 >= 5  true
+	5 >= 6  true
+	4 <= 5  true
+	4 <= 4  true
+	4 <= 3  false
+
+### Logical Operators
+
+`&&` returns true if both sides are true.
+
+	true && true    true
+	true && false   false
+	false && false  false
+
+`||` returns true if one or more side is true.
+
+	true || true    true
+	true || false   true
+	false || true   true
+	false || false  false
+
+`!` returns true if it's applied to a false value, and false if it's applied to a true one.
+
+	!true   false
+	!false  true
+
+### Casts
+
+Usually, Volt won't let us assign a variable to another if the types aren't the same, unless it knows it'll fit. For instance,
+
+	a: i32;
+	b: i16;
+	a := b;  // This is okay, as any i16 can fit into the larger i32
+	b := a;  // Error: certain values of i32 may not fit into i16.
+
+`cast` lets us say "we know what we're doing, assign anyway."
+
+	import watt.io;
+	
+	fn main() i32
+	{
+		b: u8 = cast(u8)257;
+		writeln(b);
+		return 0;
+	}
+
+Output:
+
+	1
+
+As the maximum value that a `u8` can hold is a 255, the cast forces it to truncate the value, and it wraps around.
+
+### Increment and Decrement
+
+The increment and decrement operators increase and decrease a variables value by 1 each time.
+
+	a := 0;
+	a++;  // a is 1
+	a--;  // a is 0
+
+They can be used both before, and after the variable. These are known as prefix and postfix increment/decrement operators.
+
+	a := 0;
+	++a;  // a is 1
+	a++;  // a is 2
+	a--;  // a is 1
+	--a;  // a is 0
+
+There is a difference. The prefix operators return the value modified by the operation:
+
+	a := 0;
+	b := ++a;  // b is 1, a is 1
+
+While the postfix operators return the value before modifying it:
+
+	a := 0;
+	b := a++;  // b is 0, a is 1
+
+### Bitwise Operators
+
+The bitwise operators perform logical operations on a bit level. See the [wikipedia page](https://en.wikipedia.org/wiki/Bitwise_operation) for more detail. These operations operate on types of the same size.
+
+`|` sets a bit if one or both of the bits are set.
+
+	0b0000 | 0b0001  // 0b0001
+	0b0001 | 0b0001  // 0b0001
+	0b0000 | 0b0000  // 0b0000
+
+`&` sets a bit if both of the bits are set.
+
+	0b0001 & 0b0001  // 0b0001
+	0b0000 & 0b0001  // 0b0000
+	0b0001 & 0b0000  // 0b0000
+
+`^` sets a bit if one and only one of the bits are set.
+
+	0b0000 | 0b0001  // 0b0001
+	0b0001 | 0b0001  // 0b0000
+	0b0000 | 0b0000  // 0b0001
+
+`<<` shifts the bit pattern left by the number on the right.
+
+	0b0001 << 1  // 0b0010
+	0b0001 << 2  // 0b0100
+
+`>>` shifts the bit pattern right by the number on the right.
+
+	0b1000 >> 1  // 0b0100
+	0b1000 >> 2  // 0b0010
+
+## Assignment
+
+In addition to the regular assignment operator we've been using, there are several combined with the operators we've been touching on in this chapter.
+
+`a += 1` is the same as `a = a + 1`.
+
+`a *= 1` is the same as `a = a * 1`.
+
+`a /= 1` is the same as `a = a / 1`.
+
+`a -= 1` is the same as `a = a - 1`.
+
+## Ternary
+
+The ternary expression is like a compact `if` statement. It returns a value dependent on a boolean expression.
+
+	a := 5 > 2 ? "bigger" : "smaller";
+	writeln(a);
+
+Output:
+
+	bigger
