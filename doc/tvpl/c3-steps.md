@@ -209,7 +209,37 @@ Output:
 	...
 	11 December
 
-Notice that like our `main` function, the `foreach` statement has `{` and `}`. These group statements together. They also affect how variables are looked up, a topic which we'll get into in a few sections. But first, functions.
+Notice that like our `main` function, the `foreach` statement has `{` and `}`. These group statements together. They also affect how variables are looked up, a topic which we'll get into in a few sections.
+
+## If Statement
+
+	import watt.io;
+	
+	fn main() i32
+	{
+		a := 10;
+		b := 100;
+		if (a > b) {
+			writeln("a is bigger than b");
+		} else {
+			writeln("a is not bigger than b");
+		}
+	}
+
+Output:
+
+	a is not bigger than b
+
+The if statement checks if a condition is true. If it is, it performs a group of code. Otherwise, it passes control to an `else` statement. The else statement is optional:
+
+	if (a > b) {
+		writeln("this is not printed");
+	}
+	writeln("but this always will be");
+
+Output:
+
+	but this always will be
 
 ## Functions
 
