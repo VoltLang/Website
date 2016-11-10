@@ -1,3 +1,7 @@
+---
+title: Chapter 2 - Getting Set Up
+layout: page
+---
 # Chapter 2 - Getting Set Up
 
 The first thing to do with any programming environment is to install it and verify that it is working. So let's do that now.
@@ -119,7 +123,7 @@ And with that, you should have a working *Volta* install. To update it, just run
 ### The Program
 
 	import watt.io;
-	
+
 	fn main() i32
 	{
 		writefln("hello, world");
@@ -132,4 +136,4 @@ Save that code as `hello.volt`, then at your command prompt type `volt hello.vol
 
 ## Finding Help
 
-In programming, as in life, things often don't work how you'd expect. Before you ask for help make sure you've tried to solve your problem on your own; problem solving is a key skill. But if you're truly stumped, the best place to ask for help is on the `#volt` IRC chat channel, hosted on [Freenode](https://webchat.freenode.net/). You can connect with a desktop client, or follow that link to use Freenode's own web client. 
+In programming, as in life, things often don't work how you'd expect. Before you ask for help make sure you've tried to solve your problem on your own; problem solving is a key skill. But if you're truly stumped, the best place to ask for help is on the `#volt` IRC chat channel, hosted on [Freenode](https://webchat.freenode.net/). You can connect with a desktop client, or follow that link to use Freenode's own web client.
