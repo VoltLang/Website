@@ -8,6 +8,7 @@ Gettings started
 ---
  * [Volta](setup/volta.html), the compier.
  * [Code style](code-style.html), language wide style guide.
+ * [The Volt Programming Language](tvpl/c1-intro.html), a guided tour through Volt.
 
 Language
 ---
