@@ -338,3 +338,21 @@ The ternary expression is like a compact `if` statement. It returns a value depe
 Output:
 
 	bigger
+
+## Precedence
+
+Operator precedence is the order in which operators (expressions) are evaluated. For instance, `*` has a higher precedence than `+`, so `5 * 5 + 2` is `12`, and not `35`. The associativity of an operator is from where groups are formed in expressions using the same precedence. `=` is right associative, so `a = b = c` is interpreted as `a = (b = c)`, not `(a = b) = c`. In order from highest precedence to lowest:
+
+	* / %
+	+ - ~
+	<< >>
+	< > <= >= in !in
+	== != is !is
+	&
+	^
+	|
+	&&
+	||
+	= += *= etc
+
+If you *wanted* `5 * 5 + 2` to mean `35`, you can wrap a sub expression in parens to force an evaluation order, as parens are evaluated first: `5 * (5 + 2)`.
