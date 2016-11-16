@@ -15,13 +15,14 @@ We've seen the block statement several times already. It's attached to functions
 	fn main() i32
 	{
 		{
-			x = 2;
+			x := 2;
 			writeln(x);
 		}
 		{
-			x = "hello";
+			x := "hello";
 			writeln(x);
 		}
+		return 0;
 	}
 
 Output:
@@ -142,7 +143,7 @@ All of the sections are optional. If the condition is empty, it is considered to
 
 ## Foreach Statement
 
-We've been introduced. Here's a different form that is often useful:
+We've been introduced to the `foreach` statement. Here's a different form that is often useful:
 
 	import watt.io;
 	
@@ -223,8 +224,8 @@ The continue statement can only occur inside of a loop. When it is run, the curr
 	fn main() i32
 	{
 		i := 0;
-		while (i <= 10) {
-			if (i < 9) {
+		while (i < 10) {
+			if (++i <= 9) {
 				continue;
 			}
 			writeln(i);
