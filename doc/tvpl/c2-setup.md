@@ -126,7 +126,7 @@ And with that, you should have a working *Volta* install. To update it, just run
 
 	fn main() i32
 	{
-		writefln("hello, world");
+		writeln("hello, world");
 		return 0;
 	}
 
