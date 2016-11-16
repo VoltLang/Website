@@ -11,7 +11,7 @@ This chapter will be a whirlwind tour of a lot of features. We'll go more in dep
 We'll go into more detail later, but for now it's enough to know that numbers can be given to `writeln` too.
 
 	import watt.io;
-  
+
 	fn main() i32
 	{
 		writeln(42);
@@ -63,7 +63,7 @@ The above is a shorthand. Volt is what is a 'statically typed' language; variabl
 What if we want to declare a variable, but we don't have a value to assign it right away? How do we give it a type without using `:=`? Well, A long form version of the example from the beginning of the section is as follows:
 
 	import watt.io;
-	
+
 	fn main() i32
 	{
 		numberOfMonths: i32 = 12;
@@ -84,7 +84,7 @@ We'll talk more about types later on. For now, it is enough to know that they ex
 ## Maths!
 
 	import watt.io;
-	
+
 	fn main() i32
 	{
 		writeln(1 + 1);
@@ -162,7 +162,7 @@ The `12` in the example above is the length of the array; how many values it hol
 So far the programs we've written have all been very linear. They start at the top, and run all our code until they get to the end. What if we took our previous example, and wanted to display all the months. We *could* do something like this:
 
 	import watt.io;
-	
+
 	fn main() i32
 	{
 		months := ["January", "February", "March", "April", "May",
@@ -177,7 +177,7 @@ So far the programs we've written have all been very linear. They start at the t
 But there's an easier way. Statements *do* things. In this case, the `foreach` runs some code **for** **each** entry in a list.
 
 	import watt.io;
-	
+
 	fn main() i32
 	{
 		months := ["January", "February", "March", "April", "May",
@@ -214,7 +214,7 @@ Notice that like our `main` function, the `foreach` statement has `{` and `}`. T
 ## If Statement
 
 	import watt.io;
-	
+
 	fn main() i32
 	{
 		a := 10;
@@ -224,6 +224,7 @@ Notice that like our `main` function, the `foreach` statement has `{` and `}`. T
 		} else {
 			writeln("a is not bigger than b");
 		}
+		return 0;
 	}
 
 Output:
@@ -246,7 +247,7 @@ Output:
 Functions are a block of code that can be 'called' to do a thing by other pieces of code.
 
 	import watt.io;
-	
+
 	fn sayHello()
 	{
 		writeln("Hello");
@@ -261,7 +262,7 @@ Functions are a block of code that can be 'called' to do a thing by other pieces
 	}
 
 Output:
-	
+
 	Hello
 	Hello
 	Hello
@@ -271,7 +272,7 @@ The keyword `fn NAME` declares a function with a given name. All of our full exa
 Functions can optionally have return values. These go after the `()`. Our `main` function returns an integer: `i32`. You can store this value and use it like any other:
 
 	import watt.io;
-	
+
 	fn getZero() i32
 	{
 		return 0;
@@ -287,13 +288,13 @@ Functions can optionally have return values. These go after the `()`. Our `main`
 We can give values to functions to work with by defining a 'parameter list': a special list of variables that we give to the function when we call it.
 
 	import watt.io;
-	
+
 	fn sayHello(name: string)
 	{
 		writeln("Hello there...");
 		writeln(name);
 	}
-	
+
 	fn main() i32
 	{
 		sayHello("Bob");
@@ -313,17 +314,18 @@ Output:
 Scope defines who can see which variables. If we make a variable outside of a function, it is known as a 'global' variable, and we even have to mark it as such:
 
 	import watt.io;
-	
+
 	global n: i32 = 2;
-	
+
 	fn main() i32
 	{
 		writeln(n);  // 2
-		n := 3;  // ERROR: n is already defined.
 		return 0;
 	}
 
 A variable defined in a block statement is a 'local' variable, and can only be seen in that scope, and block statements inside of that block statement.
+
+	import watt.io;
 
 	fn main() i32
 	{
@@ -342,16 +344,16 @@ A variable defined in a block statement is a 'local' variable, and can only be s
 All Volt code lives in 'modules' -- these correspond to `.volt` files. Our little example code hasn't done it here for the sake of space, but you should always name your modules:
 
 	module a;
-	
+
 	global n: i32 = 5;
 
 If we save that in a file `a.volt`, and then have `b.volt`:
 
 	module b;
-	
+
 	import a;
 	import watt.io;
-	
+
 	fn main() i32
 	{
 		writeln(n);
@@ -373,7 +375,7 @@ You can use functions from modules too. In fact, `import watt.io;` imports a mod
 Getting input typed from the user will be useful for some of the examples in the next chapter. We can use the `readln` function, also found in `watt.io` to get it. When `readln` is called, the program will stop and wait for the user to press enter. Once they do, any text that they have written will be returned in a string.
 
 	import watt.io;
-	
+
 	fn main() i32
 	{
 		writeln("Please enter your name and press enter.");
@@ -394,7 +396,7 @@ We can turn strings into numbers with the toInt function found in watt.conv:
 
 	import watt.io;
 	import watt.conv;
-	
+
 	fn main() i32
 	{
 		writeln("Enter a number.");
