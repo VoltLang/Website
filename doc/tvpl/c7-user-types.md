@@ -27,7 +27,7 @@ A struct is a bunch of variables bundled with functions that operate on those va
 	{
 		cindy: Person;
 		cindy.name = "Cindy";
-		cindy.name = 22;
+		cindy.age = 22;
 		cindy.introduceSelf();
 		return 0;
 	}
@@ -42,7 +42,7 @@ There's not a lot more to it. They can be passed around, assigned to, just like 
 	
 	struct S
 	{
-		i: i32;
+		x: i32;
 	}
 	
 	fn twiddle(s: S)
@@ -154,7 +154,7 @@ We can give values to objects when they're being constructed by defining a 'cons
 	{
 		//id := new IntDoubler();  // Error: expected i32 argument
 		id := new IntDoubler(32);
-		writeln(id);
+		writeln(id.x);
 		return 0;
 	}
 

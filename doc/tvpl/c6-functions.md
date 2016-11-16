@@ -32,16 +32,16 @@ Functions can also be declared *in* other functions. These are known as 'inline 
 
 Output:
 
-	Jill
-	Bob
+	Hello Jill
+	Hello Bob
 
 These functions can access variables declared above them (just like any other scope), and can be passed to other functions as *delegates*.
 
 	import watt.io;
-	
-	fn callDg(scope dgt: dg)
+
+	fn callDg(dgt: scope dg())
 	{
-		dg();
+		dgt();
 	}
 
 	fn main() i32
@@ -75,7 +75,7 @@ A *delegate* is a function with a context variable; in this case, to the variabl
 		return sum;
 	}
 
-	fn main()
+	fn main() i32
 	{
 		writeln(add(1, 2, 3));
 		writeln(add([1, 2, 3]));
