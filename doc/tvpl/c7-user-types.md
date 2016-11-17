@@ -4,7 +4,7 @@ layout: page
 ---
 # Chapter 7 - User Defined Types
 
-Volt has several facilities for users to create more complex custom types. We'll start with the simplest.
+Volt has several facilities for users to create more complex custom types.
 
 ## Structs
 
@@ -36,7 +36,7 @@ Output:
 
 	Hello, I'm Cindy and I'm 22 years old.
 
-There's not a lot more to it. They can be passed around, assigned to, just like a primitive type. Note that structs are value types -- if you pass one into a function without using pointers or `ref`, and modify the fields, the `struct` is copied, and the caller doesn't see anything change.
+There's not a lot more to it. They can be passed around, assigned to, just like a primitive type. Note that structs are 'value' types -- if you pass one into a function without using pointers or `ref`, and modify the fields, the `struct` is copied, and the caller doesn't see anything change.
 
 	import watt.io;
 	
@@ -55,7 +55,7 @@ There's not a lot more to it. They can be passed around, assigned to, just like 
 		s: S;
 		s.x = 6;
 		twiddle(s);
-		writeln(s.x);
+		writeln(s.x);  // Not 12!
 		return 0;
 	}
 
@@ -127,14 +127,14 @@ Output:
 
 `Doctor` is said to 'inherit' from `Person`: it is a 'child class'.
 
-You will note that `p2` is declared as a `Person`, not a `Doctor`, but because it was initialised with a `Doctor` object, the `Doctor` greeting is used. Class functions are known as 'methods', and can be 'overriden'. So if you have a `Person` object, you don't know exactly what it's going to do when you call `sayHello`. It might use the regular greeting, or a different one.
+You will note that `p2` is declared as a `Person`, not a `Doctor`, but because it was initialised with a `Doctor` object, the `Doctor` greeting is used when `sayHello` is called. Class functions are known as 'methods', and can be 'overriden'. So if you have a `Person` object, you don't know exactly what it's going to do when you call `sayHello`. It might use the regular greeting, or a different one.
 
-Unlike structs, classes are always reference types.
+Unlike structs, classes are always 'reference' types.
 
 	p: Person;
 	p.sayHello();  // This crashes as p is null.
 
-The default value of an object is `null`. Trying to call a function or look up a variable of a null object will cause a crash. (A segmentation fault on unix systems, and an access violation on Windows ones).
+The default value of an object is `null`. Trying to call a function or look up a variable of a null object will cause a crash.
 
 We can give values to objects when they're being constructed by defining a 'constructor'.
 
