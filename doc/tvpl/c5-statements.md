@@ -4,11 +4,11 @@ layout: page
 ---
 # Chapter 5 - Statements
 
-Statements manage the flow of code execution. Let's go over them quickly now.
+Statements manage the flow of code execution.
 
 ## BlockStatement
 
-We've seen the block statement several times already. It's attached to functions we write, along with foreach and if statements. They group other statements together, and introduce a new scope. Inside a function, we can just add a block statement on its own, if we want the ability to use the same variable name for different variables. If you find yourself doing this, it's probably a sign to split your function into more functions, but it's there if you need it.
+We've seen the block statement several times already. It's attached to functions we write, `foreach`, `if`, and many others. They group other statements together, and introduce a new scope. Inside a function, we can just add a block statement on its own, if we want the ability to use the same variable name for different variables. If you find yourself doing this, it's probably a sign to split your function into more functions, but it's there if you need it.
 
 	import watt.io;
 	
@@ -32,7 +32,7 @@ Output:
 
 ## Return Statement
 
-We covered this briefly; it stops execution of a function and returns a values. If a function has a void return value, you can use `return;` to return execution from that function.
+We covered the `return` statement briefly; it stops execution of a function and returns a value to the caller. If a function has a void return value, you can use `return;` to return execution from that function.
 
 	import watt.io;
 	
@@ -68,7 +68,7 @@ The `assert` statement verifies a condition. If the condition is false, the exec
 
 ## If Statement
 
-We covered this earlier, so here we'll mention something that's not entirely obvious. The 'truthiness' of if statements is slightly more permissive than just assigning to a `bool` variable. Along with `true` and `false`, non zero integers are considered `true`, while zero is `false`.
+We covered this earlier, so here we'll mention something that's not entirely obvious. The 'truthiness' of an `if` statement is slightly more permissive than just assigning to a `bool` variable. Along with `true` and `false`, non zero integers are considered `true`, while zero is `false`.
 
 ## While Statement
 
@@ -93,7 +93,7 @@ Output:
 
 ## Do While Statement
 
-Like a regular `while` statement, except the condition is checked at the end of the loop. So even a loop with a false condition is executed once. Not used a lot, but handy when you need it.
+This is like a regular `while` statement, except the condition is checked at the end of a loop. So even a loop with a false condition is executed once. Not used a lot, but handy when you need it.
 
 	import watt.io;
 	
@@ -116,7 +116,7 @@ A `for` statement is another loop. It looks a little complicated at first, but y
 	for (<variables>; <condition>; <iterator>) {
 	}
 
-The variable is declared for the entirety of the `for` loop, the condition is checked to see if the loop is continued, just like a `while` loop. And the iterator is run after each loop.
+The variable is declared for the entirety of the `for` loop's block statement, the condition is checked to see if the loop is continued, just like a `while` loop. And the iterator is run after each loop.
 
 	import watt.io;
 	
@@ -136,7 +136,7 @@ Output:
 	3
 	4
 
-All of the sections are optional. If the condition is empty, it is considered to always be true. A common way of writing an infinite loop (a loop that never terminates) is then:
+All of the sections are optional. If the condition is empty, it is considered to always be true. So a common way of writing an infinite loop (a loop that never terminates) is then:
 
 	for (;;) {
 	}
@@ -208,7 +208,7 @@ Output:
 
 	three
 
-If the `break` isn't present in a non-empty case, the compiler will error. This is because in C, the switch statement would 'fall-through' to the next case. If you wish to jump to the next case, use `goto case;` instead of `break;`. An empty case is special cased to fall-through quietly.
+If the `break` isn't present in a non-empty case, the compiler will error. This is because in C, a switch statement would 'fall-through' to the next case if `break` was not present. If you wish to jump to the next case, use `goto case;` instead of `break;`. An empty case is special cased to fall-through quietly.
 
 	case 1:
 	case 2:
@@ -239,7 +239,7 @@ Output:
 
 ## Break Statement
 
-We've seen the `break` statement breaking out of `switch` `case`s, but it works in loops too. It breaks out of the current loop, regardless of the state of the condition.
+We've seen the `break` statement breaking out of `switch` `case`s, but it works in loops too. It breaks out of the current loop, regardless of the its condition.
 
 	import watt.io;
 	
@@ -258,7 +258,7 @@ Output:
 
 ## With Statement
 
-The `with` statement takes an expression that is looked up first. This can make some code easier to read.
+The `with` statement takes an expression that is checked first when doing lookups. This can make some code easier to read.
 
 	arr := [1, 2, 3];
 	with (arr) {
@@ -304,7 +304,7 @@ Output:
 
 # Scope Statement
 
-The scope statement is executed when a function is left. `scope (success)` is run when a function is exited via a `return` statement. `scope (failure)` is run when a function is exited via a `throw` statement. And `scope (exit)` is always run, no matter how the function is left.
+The `scope` statement is executed when a function is left. `scope (success)` is run when a function is exited via a `return` statement. `scope (failure)` is run when a function is exited via a `throw` statement. And `scope (exit)` is always run, no matter how the function was left.
 
 	import watt.io;
 	
