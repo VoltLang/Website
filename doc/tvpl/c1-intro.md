@@ -8,7 +8,7 @@ Volt is a systems programming language.
 
 It has become increasingly difficult to find a consistent definition of a "systems programming language". So perhaps a better statement would be that Volt is a language that outputs executable code directly, and intends to help the programmer write efficient software in a comfortable environment.
 
-This guide is intended for close reading by beginning programmers, and perhaps a skim from more experienced ones that are curious about the whats and whys of Volt. We hope that it will be of some use to you. If you have a thought on how it could be improved, feel free to open an issue on the [Volta GitHub page](https://github.com/VoltLang/Volta), contact the author [by email](mailto:b.helyer@gmail.com), or [on Twitter](https://twitter.com/bhelyer).
+This guide is intended for close reading by beginning programmers, and for skimming by the experienced and curious. We hope that it will be of some use. If you have thoughts on improvements, feel free to open an issue on the [Volta GitHub page](https://github.com/VoltLang/Volta), contact the author [by email](mailto:b.helyer@gmail.com), or [on Twitter](https://twitter.com/bhelyer).
 
 ## Contents
 
