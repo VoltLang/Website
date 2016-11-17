@@ -4,20 +4,20 @@ layout: page
 ---
 # Chapter 4 - Types and Expressions
 
-In this chapter we'll cover most of the types, and the expressions that operate on them. Let's get started with the simple types; types that can exist on their own.
+In this chapter we'll cover most of the types and the expressions that operate on them. Let's get started with the simple types; types that can exist on their own.
 
 ## Simple Types
 
 ### Integers
 
-You've been introduced to one of the integers already; `i32`. The i stands for 'integer'. The number is how many bits - zeros and ones - represent the integer. That means the number determines the range of numbers that can be stored. For instance, the `i8` is 8 bits (1 byte) in size, and stores the integer range -128 to 127. If you add one to an `i8` holding a value of 127, it is said to 'overflow', and wraps around to -128. Here are all the signed integers:
+You've been introduced to one of the integers already; `i32`. The i stands for 'integer'. The number after the 'i' is how many bits - zeros and ones - represent the integer. That means the number determines the range of numbers that can be stored. For instance, the `i8` is 8 bits (1 byte) in size, and stores the integer range -128 to 127. If you add one to an `i8` holding a value of 127, it is said to 'overflow', and wraps around to -128. Here are all the signed integers:
 
 	i8  min:-128 max:127
 	i16 min:-32,768 max:32,767
 	i32 min:−2,147,483,648 max:2,147,483,647
 	i64 min:-9,223,372,036,854,775,808 max:9,223,372,036,854,775,807
 
-As said, those are the 'signed' integers. The sign being the minus sign. There's another kind of integer - the 'unsigned' integer. As their name suggests, they don't hold negative values.
+As said, those are the 'signed' integers. The sign being the minus sign. There's another kind of integer - the 'unsigned' integer. As their name suggests, they don't have a sign; they can't hold negative values.
 
 	u8  min:0 max:255
 	u16 min:0 max:65,535
@@ -43,8 +43,8 @@ Integer literals are signed by default, but if you put `U` on the end they will 
 
 Underscores are ignored, this can help with larger numbers:
 
-	1000_000_000
-	3_2
+	1000_000_000  // same as '1000000000'
+	3_2  // same as '32'
 
 A constant starting with `0x` is a [hexadecimal](https://en.wikipedia.org/wiki/Hexadecimal) literal:
 
@@ -56,12 +56,12 @@ A constant starting with `0b` is a [binary](https://en.wikipedia.org/wiki/Binary
 
 ### Floating Point
 
-Floating points represent numbers with a decimal place. You can't represent pi as an integer, so that's where the floating point types come in. Volt has two, like the integers they are delimited by size.
+Floating points represent numbers with a decimal place. You can't represent pi as an integer, for instance, so that's where the floating point types come in. Volt has two, and like integers they are delimited by their size.
 
 	f32
 	f64
 
-Floating points use the same expressions as integers so `5.0 / 2.0` gives the result `2.5`. Floating point is a big topic, and the finer details deserve their own document. If you're interested, [What Every Computer Scientist Should Know About Floating-Point Arithmetic](https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html) is a classic well worth reading.
+Floating points use the same arithmetic expressions as integers so `5.0 / 2.0` gives the result `2.5`. Floating point is a big topic, and the finer details deserve their own document. If you're interested, [What Every Computer Scientist Should Know About Floating-Point Arithmetic](https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html) is well worth reading.
 
 #### Floating Point Literals
 
@@ -119,7 +119,7 @@ We used these last chapter. To declare an array of type T, we would write `T[]`.
 
 #### Array Literals
 
-The `[` character denotes the start of the array literal. Values are separated by the `,` character, and the literal is ended with the `]` character:
+The `[` character denotes the start of the array literal. Values are separated by the `,` character, and the literal ends with the `]` character:
 
 	[1, 2, 3]
 	['a', 'b']
@@ -318,7 +318,7 @@ The bitwise operators perform logical operations on a bit level. See the [wikipe
 
 ## Assignment
 
-In addition to the regular assignment operator we've been using, there are several combined with the operators we've been touching on in this chapter.
+In addition to the regular assignment operator we've been using, there are several that are combined with the operators we've been touching on in this chapter.
 
 `a += 1` is the same as `a = a + 1`.
 
@@ -355,4 +355,4 @@ Operator precedence is the order in which operators (expressions) are evaluated.
 	||
 	= += *= etc
 
-If you *wanted* `5 * 5 + 2` to mean `35`, you can wrap a sub expression in parens to force an evaluation order, as parens are evaluated first: `5 * (5 + 2)`.
+If you *wanted* `5 * 5 + 2` to mean `35`, you can wrap a part of an expression in parens to give it a higher priority, as parens are evaluated first: `5 * (5 + 2)`.
