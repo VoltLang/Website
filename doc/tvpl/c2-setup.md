@@ -52,9 +52,11 @@ If you're not using Homebrew, download LLVM from the [LLVM homepage](llvm.org), 
 
 #### Windows Dependency Installation
 
-*TODO: Run through steps in a VM, give more detail.*
+Install [DMD.](http://dlang.org/download.html).
 
-[Install DMD.](dlang.org) Install Microsoft Visual Studio. Download the LLVM source code [from the homepage], and build it in 'Release' mode. Use the `make` application shipped with DMD from the Visual Studio.
+Install [Microsoft Visual Studio Community](https://www.visualstudio.com), for free. Microsoft has a habit of changing URLs monthly, so you'll have to click around for the download page. We believe in you!
+
+Install [Cmake.](https://cmake.org/) and use it to compile the [LLVM](llvm.org) source code. [LLVM have more detailed documentation on how to do this.](http://llvm.org/docs/CMake.html) Be sure to compile in 'Release' mode; 'Debug' LLVM builds have a tendency to crash on Windows.
 
 Finally, [download and install git.](https://git-scm.com/download/win) Make sure it's on your `%PATH%`.
 
