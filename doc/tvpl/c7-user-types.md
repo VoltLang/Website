@@ -215,3 +215,7 @@ Output:
 	watermelon
 
 The `doInt` and `doString` functions do not need to know that the class `TheClass` exists. It implements the `interface` it cares about, and that's good enough. This allows you to compartmentalise your class designs.
+
+# Wrapping Up
+
+[Next, some parting remarks and some useful tools.](conclusion.html)
