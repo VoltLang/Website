@@ -4,11 +4,11 @@ layout: page
 ---
 # Chapter 3 - First Steps
 
-This chapter will be a whirlwind tour of a lot of features. We'll go more in depth next chapter, but this ensures everybody is on the same page. Let's go!
+This chapter will be a whirlwind tour of a lot of features. We'll go into more depth next chapter.
 
 ## Displaying Values
 
-We'll go into more detail later, but for now it's enough to know that numbers can be given to `writeln` too.
+For now it's enough to know that numbers can be given to `writeln` too.
 
 	import watt.io;
 
@@ -22,7 +22,7 @@ Should output `42` onto your console. Don't worry about the `return 0` for now.
 
 ## Variables
 
-Variables hold values. Numbers like the `42`, above, or 'strings' of text, like `hello, world` from the last chapter. In the simplest cases, defining a variable is easy. Just give a name, and the value you want to associate with it.
+Variables hold values. Numbers like the `42`, or 'strings' of text, like `hello, world` from the last chapter. In the simplest cases, defining a variable is easy. Give it a name and a value you want to associate with it, separated by `:=`.
 
 	import watt.io;
 
@@ -40,7 +40,7 @@ Will output:
 	12
 	January
 
-This is useful enough, but as their name implies, we can change the contents of a variable.
+This is useful enough, but as their name implies, we can change a variable's contents.
 
 	n := 1;
 	writeln(n);
@@ -52,15 +52,15 @@ Output:
 	1
 	2
 
-Note that the first time we *define* the variable, we use type inference operator `:=`. This asks the compiler to create a new variable of the name before the `:=`, and assign it a given value. `=` is the 'assignment operator'. This asks the compiler to assign a value to an already defined variable. Variables can't be given the same name. It's slightly more complicated than that, in reality, but that will come later.
+Note that the first time we *define* the variable, we use the type inference operator `:=`. This asks the compiler to create a new variable of the name before the `:=`, and assign it the given value. `=` on its own is the 'assignment operator'. This asks the compiler to assign a value to an already defined variable. Variables can't be given the same name. It's slightly more complicated than that, in reality, but that will come later.
 
-The above is a shorthand. Volt is what is a 'statically typed' language; variables and expressions always have a 'type'. `3` is an integer, and `"hello"` is a `string`. Once a variable has been declared as a type, it cannot be changed.
+The above is a shorthand. Volt is a 'statically typed' language; variables and expressions always have a 'type'. `3` is an integer, `"hello"` is a `string`, and so on. All variables have a type, and it cannot be changed.
 
 	n := 1;
 	n = "hello";   // ERROR: can't convert string to an integer.
 	n := "hello";  // ERROR: variable 'n' is already defined.
 
-What if we want to declare a variable, but we don't have a value to assign it right away? How do we give it a type without using `:=`? Well, A long form version of the example from the beginning of the section is as follows:
+What if we want to declare a variable, but we don't have a value to assign to it right away? How do we give it a type without using `:=`? Well, A long form version of the example from the beginning of the section is as follows:
 
 	import watt.io;
 
@@ -73,7 +73,7 @@ What if we want to declare a variable, but we don't have a value to assign it ri
 		return 0;
 	}
 
-Semantically, the program is identical. Typographically, it's a little longer. This means you can define a variable, and then assign to it later:
+The output of the program is the same. It's just a little more typing. With this method you can define a variable, and assign to it later:
 
 	n: i32;
 	// ...
@@ -95,7 +95,7 @@ Output:
 
 	2
 
-Numbers on their own aren't that useful. Volt can do addition as above. Subtraction:
+Numbers on their own aren't that useful. Volt can also do subtraction:
 
 	0 - 5  // output: -5
 
@@ -122,18 +122,18 @@ You can also mix expressions with numbers, and variables that hold numbers:
 	n := 3
 	n - 2  // output: 1
 
-There are many more expressions, which we will enumerate in the next chapter.
+There are many more expressions, which we will go over in the next chapter.
 
 ## Arrays
 
-Say we wanted to store the names of the months. We could do it with individual variables, as we've been doing:
+Say we wanted to store the names of the months. We could do it with individual variables:
 
 	firstMonth := "January";
 	secondMonth := "February";
 	...
 	twelthMonth := "December";
 
-This works, but there's a more elegant way. Use an array:
+This works, but there's a more elegant way. Use an 'array':
 
 	months := ["January", "February", "March", "April", "May",
 		"June", "July", "August", "September", "October", "November", "December"]
@@ -147,13 +147,13 @@ Output:
 	December
 	March
 
-An array contains multiple values in a single variable. The above would be called "an array of strings". Arrays must be of the same type. We can look up the value with an 'index expression'. The numbering starts from zero, which is why `months[1]` would be `February` and *not* `January`. You can create an array that contains no values with a new expression:
+An array contains multiple values in a single variable. The above would be called "an array of strings". Arrays are a list of values with the same type. We can look up one of the values with an 'index expression'. The numbering of the index expressions start from zero, which is why `months[1]` would be `February` and *not* `January`. You can create an array that contains no values with the 'new' expression:
 
 	months := new string[](12);
 	months[0] = "January";
 	...
 
-The `12` in the example above is the length of the array; how many values it holds. You can get this value by using the `.length` property of arrays:
+The `12` in the example above is the length of the array; how many values it holds. You can get this value by using the `.length` property of an array:
 
 	writeln(months.length);  // output:12
 
@@ -174,7 +174,7 @@ So far the programs we've written have all been very linear. They start at the t
 		return 0;
 	}
 
-But there's an easier way. Statements *do* things. In this case, the `foreach` runs some code **for** **each** entry in a list.
+But there's an easier way. Statements are language features that do things. In this case, the `foreach` runs some code **for** **each** entry in a list.
 
 	import watt.io;
 
@@ -267,7 +267,7 @@ Output:
 	Hello
 	Hello
 
-The keyword `fn NAME` declares a function with a given name. All of our full examples have featured a function: `main`. Main is a special function -- it's the first function called when your program is run.
+The keyword `fn NAME` declares a function with a given name. Most of our examples have featured a function: `main`. Main is a special function -- it's the first function called when your program is run.
 
 Functions can optionally have return values. These go after the `()`. Our `main` function returns an integer: `i32`. You can store this value and use it like any other:
 
@@ -323,7 +323,7 @@ Scope defines who can see which variables. If we make a variable outside of a fu
 		return 0;
 	}
 
-A variable defined in a block statement is a 'local' variable, and can only be seen in that scope, and block statements inside of that block statement.
+A variable defined in a block statement is a 'local' variable, and can only be seen in that block statement, and block statements inside of that block statement.
 
 	import watt.io;
 
@@ -360,7 +360,7 @@ If we save that in a file `a.volt`, and then have `b.volt`:
 		return 0;
 	}
 
-If you then compile, passing both modules:
+If you then compile, passing both modules to *Volta*:
 
 	volt a.volt b.volt
 
@@ -368,11 +368,11 @@ The output will be:
 
 	5
 
-You can use functions from modules too. In fact, `import watt.io;` imports a module from the *Watt* standard library that contains the `writeln` function we've been using to output values!
+You can use functions from imported modules too. In fact, `import watt.io;` imports a module from the *Watt* standard library (a 'library' is a collection of useful modules) that contains the `writeln` function we've been using to output values!
 
 ## Getting Input
 
-Getting input typed from the user will be useful for some of the examples in the next chapter. We can use the `readln` function, also found in `watt.io` to get it. When `readln` is called, the program will stop and wait for the user to press enter. Once they do, any text that they have written will be returned in a string.
+Getting input typed from the user will be useful for some of the examples in the next chapter. We can use the `readln` function, also found in `watt.io` to get it. When `readln` is called, the program will stop and wait for the user to input some text and then press enter. Once they do, any text that they have written will be returned in a string.
 
 	import watt.io;
 
@@ -392,7 +392,7 @@ Output:
 	Hello,
 	<name>
 
-We can turn strings into numbers with the toInt function found in watt.conv:
+We can turn strings into numbers with the `toInt` function found in `watt.conv`:
 
 	import watt.io;
 	import watt.conv;
