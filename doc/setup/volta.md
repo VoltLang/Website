@@ -23,7 +23,7 @@ $ sudo apt-get install dmd llvm libgc-dev
 Arch Linux
 ---
 ```
-$ sudo pacman -S dmd llvm
+$ sudo pacman -S dmd dtools llvm
 ```
 
 Instead of using the packaged DMD binaries on Ubuntu or Debian you can use the [D-APT](http://d-apt.sourceforge.net/) repository to install DMD. Alternativly you can also use the [official binaries](http://dlang.org/download.html).
