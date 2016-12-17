@@ -6,9 +6,8 @@ permalink: /doc/
 
 Gettings started
 ---
- * [Volta](setup/volta.html), the compiler.
+ * [The Volt Programming Language](tvpl/c1-intro.html), a guided tour through Volt, from setup to code.
  * [Code style](code-style.html), language wide style guide.
- * [The Volt Programming Language](tvpl/c1-intro.html), a guided tour through Volt.
 
 Language
 ---
