@@ -17,13 +17,13 @@ Building Volt requires a D compiler as well as llvm, to build programs we also n
 Ubuntu / Debian
 ---
 ```
-$ sudo apt-get install dmd llvm libgc-dev
+$ sudo apt-get install dmd llvm nasm
 ```
 
 Arch Linux
 ---
 ```
-$ sudo pacman -S dmd dtools llvm
+$ sudo pacman -S dmd dtools llvm nasm
 ```
 
 Instead of using the packaged DMD binaries on Ubuntu or Debian you can use the [D-APT](http://d-apt.sourceforge.net/) repository to install DMD. Alternativly you can also use the [official binaries](http://dlang.org/download.html).
@@ -36,7 +36,7 @@ There are no packages of GDC for Mac so DMD should be used. To install it, the e
 Then, in a terminal
 
 ```
-brew install dmd
+brew install dmd nasm
 ```
 
 If you prefer not to use Homebrew, then download DMD from [here](http://dlang.org/download.html), then just extract the contents of dmd.2.<version>.zip <somewhere> and set the DMD environmental variable to be "<somewhere>/osx/bin/dmd" or put the folder "<somewhere>/osx/bin" on the path.
@@ -44,23 +44,6 @@ If you prefer not to use Homebrew, then download DMD from [here](http://dlang.or
 For LLVM version 3.6, you can `brew install homebrew/versions/llvm36`, then add `/usr/local/Cellar/llvm36/3.6.2/lib/llvm-3.6/bin` on your $PATH (you may remove it afterwards). The reason for doing so is, that Homebrew doesn't properly link non-core-only versions - like LLVM v3.6 if it comes from `homebrew/versions/llvm36`. For example, `llvm-config` won't be callable, but only `llvm-config-3.6`.
 
 Without Homebrew, just download LLVM from the LLVM homepage, and put the bin folder inside the unpacked tarball on the PATH, the builds system needs `llvm-config` and the compiler requires some helpers from there to link.
-
-Volt also requires the Boehm GC
-
-brew install bdw-gc
-
-Or, without Homebrew
-
-```
-$ curl http://www.hboehm.info/gc/gc_source/gc-7.4.2.tar.gz -o gc-7.4.2.tar.gz
-$ tar xfv gc-7.4.2.tar.gz
-$ cd gc-7.4.2
-$ git clone git://github.com/ivmai/libatomic_ops.git
-$ ./configure
-$ make
-```
-
-Then, copy `libgc.la` and `libcord.la` to the `rt` folder.
 
 
 Windows
@@ -70,8 +53,6 @@ The only compiler that has been used to compile Volta on Windows is DMD. Install
 Using MinGW's bash prompt, compile LLVM -- be sure to use --enable-shared and build a DLL.
 
 Once compiled, put the LLVM tools and DLL in your PATH, in with the D tools is probably the simplest place. Run `implib /p:128 LLVM.lib <thellvmdll>` and place that in the Volta directory. Run make (Digital Mars or GNU make should work) and with a bit of luck, you should have a working volt.exe.
-
-You'll need to link with the [BoehmGC](http://www.hboehm.info/gc/). The MinGW you compiled LLVM should suffice.
 
 These directions need to be expanded, but hopefully this has pointed you in the right direction.
 
@@ -110,9 +91,6 @@ After running `make` you have a ready to use Volt compiler! You usually want to 
 --if-stdlib
 -I
 %@execdir%/../Watt/src
---if-stdlib
--l
-gc
 --if-stdlib
 --if-linux
 -l

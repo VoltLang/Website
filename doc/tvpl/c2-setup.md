@@ -26,11 +26,11 @@ The source code is all available, so the absence of a platform is certainly no i
 
 If you are on **Ubuntu** or a derivative,
 
-	sudo apt-get install dmd llvm libgc-dev git
+	sudo apt-get install dmd llvm nasm git
 
 will install what you need. If you're on *Arch Linux*,
 
-	sudo pacman -S dmd llvm git
+	sudo pacman -S dmd llvm git nasm
 
 will do it. Otherwise consult your OS documentation on how to install these packages.
 
@@ -38,7 +38,7 @@ will do it. Otherwise consult your OS documentation on how to install these pack
 
 The easiest way of installing DMD on OS X is using [Homebrew](brew.sh). With brew installed,
 
-	brew install dmd
+	brew install dmd nasm
 
 If you prefer not to use Homebrew, then download DMD from [here](http://dlang.org/download.html), then just extract the contents of the dmd zip and set the `DMD` environmental variable to be `/osx/bin/dmd` or put the folder `/osx/bin` on the `$PATH`.
 
@@ -91,9 +91,6 @@ Create a `volt.conf` file in the `Volta` directory with the following contents.
 	--if-stdlib
 	-I
 	%@execdir%/../Watt/src
-	--if-stdlib
-	-l
-	gc
 	--if-stdlib
 	--if-linux
 	-l
