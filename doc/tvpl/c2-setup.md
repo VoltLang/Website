@@ -109,7 +109,7 @@ First, configure the build.
 
 Then, to build the `hello` executable,
 
-	battery
+	battery build
 
 If an error is produced, make sure your code matches what's written above exactly. Otherwise, run `./hello` (on Linux and OS X) or `hello.exe` (on Windows) to run your new program! The message `hello, world` should be printed onto the screen. If it worked, everything seems to be setup correctly. [On to the next chapter!](c3-steps.html) If you're still confused, keep reading.
 
