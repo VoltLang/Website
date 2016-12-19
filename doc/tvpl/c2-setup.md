@@ -30,7 +30,7 @@ If you are on **Ubuntu** or a derivative,
 
 will install what you need. If you're on *Arch Linux*,
 
-	sudo pacman -S dmd llvm git nasm
+	sudo pacman -S dmd llvm nasm git
 
 will do it. Otherwise consult your OS documentation on how to install these packages.
 
@@ -62,7 +62,11 @@ Install [NASM.](http://www.nasm.us/). Ensure that it is available on your `%PATH
 
 Finally, [download and install git.](https://git-scm.com/download/win) Make sure it's on your `%PATH%`.
 
-### Getting The Code
+### Getting Battery
+
+Download [Battery](https://github.com/VoltLang/Battery/releases), Volt's build tool. Make sure it's on your `PATH`.
+
+### Getting The code
 
 Now that the dependencies have been installed, let's set up a place to build *Volta* and the tools it needs. For simplicity, this tutorial will assume this location is directly in your `$HOME` directory/User folder, but you can place it where you want.
 
@@ -74,58 +78,13 @@ Next, let's get the code for *Volta* (the compiler), and *Watt* (the standard li
 	git clone git@github.com:VoltLang/Volta.git
 	git clone git@github.com:VoltLang/Watt.git
 
-First, build *Volta*.
-
-	cd Volta
-	make
-
-If the build was a success, there should be a `volt` or `volt.exe` executable in the `Volta` folder.
-
-Create a `volt.conf` file in the `Volta` directory with the following contents.
-
-	--if-stdlib
-	%@execdir%/rt/libvrt-%@arch%-%@platform%.o
-	--if-stdlib
-	%@execdir%/../Watt/bin/libwatt-%@arch%-%@platform%.o
-	--if-stdlib
-	%@execdir%/rt/save-regs-host.o
-	--if-stdlib
-	-I
-	%@execdir%/rt/src
-	--if-stdlib
-	-I
-	%@execdir%/../Watt/src
-	--if-stdlib
-	--if-linux
-	-l
-	dl
-	--if-stdlib
-	--if-linux
-	-l
-	rt
-
-Add `Volta` to your PATH to make things easier, and define the environmental variable `VOLTA` somewhere. On Linux and Mac OS X, you can define it in `~/.bashrc` or `~/.bash_profile` respectively:
-
-	export VOLTA=~/volt/Volta/volt
-
-As for Windows, you can create a system environmental variable from an admin command prompt and `setx`:
-
-	setx VOLTA "C:\Users\You\volt\Volta\volt.exe"
-
-Substituting the correct path to the `Volta` directory for your system.
-
-Now we're all set up to build *Watt*.
-
-	cd ../Watt
-	make
-
-And with that, you should have a working *Volta* install. To update it, just run `git pull` in the `Volta` and `Watt` directories, and re-run `make`. But let's make sure it's all working before moving on.
-
 ## Hello World!
 
 ### The Program
 
-Save this code into a file called `hello.volt`.
+Create a new folder, `hello`. In this folder would go all the code and tests that make up the project. All we want to do is print a message to the screen.
+
+Save this code into a file called `hello.volt`, and put that in a `src` folder inside the `hello` folder.
 
 	import watt.io;
 
@@ -135,9 +94,24 @@ Save this code into a file called `hello.volt`.
 		return 0;
 	}
 
+Then save the following in the root of the folder in a file called `battery.txt`.
+
+	--dep
+	watt
+
+For more information on Battery, check out [its documentation](https://github.com/VoltLang/Battery/blob/master/doc/index.md).
+
 ### Compiling and Running
 
-At your command prompt type `volt hello.volt`. This tells the compiler to compile the code in `hello.volt` into an executable. If there's no output, the compilation was successful. If an error is produced, make sure your code matches what's written above exactly. Otherwise, run `./a.out` (on Linux and OS X) or `a.exe` (on Windows) to run your new program! The message `hello, world` should be printed onto the screen. If it worked, everything seems to be setup correctly. [On to the next chapter!](c3-steps.html) If you're still confused, keep reading.
+First, configure the build.
+
+	battery config /path/to/Volta /path/to/Watt .
+
+Then, to build the `hello` executable,
+
+	battery
+
+If an error is produced, make sure your code matches what's written above exactly. Otherwise, run `./hello` (on Linux and OS X) or `hello.exe` (on Windows) to run your new program! The message `hello, world` should be printed onto the screen. If it worked, everything seems to be setup correctly. [On to the next chapter!](c3-steps.html) If you're still confused, keep reading.
 
 ## Finding Help
 
