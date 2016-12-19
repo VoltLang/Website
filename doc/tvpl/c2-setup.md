@@ -20,17 +20,17 @@ The source code is all available, so the absence of a platform is certainly no i
 
 ### Dependencies
 
-*Volta* depends on [dmd](dlang.org), [llvm](llvm.org), and the [Boehm GC](http://www.hboehm.info/gc/). We'll also want [git](git-scm.com) to fetch the code. The next sections will detail how to install these for each platform.
+*Volta* depends on [dmd](dlang.org) and [llvm](llvm.org). You'll also need [nasm](nasm.us) to build the compiler.
 
 #### Linux Dependency Installation
 
 If you are on **Ubuntu** or a derivative,
 
-	sudo apt-get install dmd llvm nasm git
+	sudo apt-get install dmd llvm nasm
 
 will install what you need. If you're on *Arch Linux*,
 
-	sudo pacman -S dmd llvm nasm git
+	sudo pacman -S dmd llvm nasm
 
 will do it. Otherwise consult your OS documentation on how to install these packages.
 
@@ -48,8 +48,6 @@ If it isn't for some reason, you can try `brew install homebrew/versions/llvm39`
 
 If you're not using Homebrew, download LLVM from the [LLVM homepage](llvm.org), and put the `bin` folder inside the unpacked tarball on the `$PATH`.
 
-[You'll also need to install git.](https://git-scm.com/download/mac)
-
 #### Windows Dependency Installation
 
 Install [DMD.](http://dlang.org/download.html).
@@ -59,8 +57,6 @@ Install [Microsoft Visual Studio Community](https://www.visualstudio.com), for f
 Install [Cmake.](https://cmake.org/) and use it to compile the [LLVM](llvm.org) source code. [LLVM have more detailed documentation on how to do this.](http://llvm.org/docs/CMake.html) Be sure to compile in 'Release' mode; 'Debug' LLVM builds have a tendency to crash on Windows.
 
 Install [NASM.](http://www.nasm.us/). Ensure that it is available on your `%PATH%`.
-
-Finally, [download and install git.](https://git-scm.com/download/win) Make sure it's on your `%PATH%`.
 
 ### Getting Battery
 
@@ -73,10 +69,7 @@ Now that the dependencies have been installed, let's set up a place to build *Vo
 	mkdir volt
 	cd volt
 
-Next, let's get the code for *Volta* (the compiler), and *Watt* (the standard library).
-
-	git clone git@github.com:VoltLang/Volta.git
-	git clone git@github.com:VoltLang/Watt.git
+Next, download the code for [Volta](https://github.com/VoltLang/Volta/archive/master.zip) and [Watt](https://github.com/VoltLang/Watt/archive/master.zip)
 
 ## Hello World!
 
