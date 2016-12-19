@@ -86,6 +86,8 @@ Create a `volt.conf` file in the `Volta` directory with the following contents.
 	--if-stdlib
 	%@execdir%/../Watt/bin/libwatt-%@arch%-%@platform%.o
 	--if-stdlib
+	%@execdir%/rt/save-regs-host.o
+	--if-stdlib
 	-I
 	%@execdir%/rt/src
 	--if-stdlib
