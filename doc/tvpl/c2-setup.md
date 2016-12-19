@@ -58,6 +58,8 @@ Install [Microsoft Visual Studio Community](https://www.visualstudio.com), for f
 
 Install [Cmake.](https://cmake.org/) and use it to compile the [LLVM](llvm.org) source code. [LLVM have more detailed documentation on how to do this.](http://llvm.org/docs/CMake.html) Be sure to compile in 'Release' mode; 'Debug' LLVM builds have a tendency to crash on Windows.
 
+Install [NASM.](http://www.nasm.us/). Ensure that it is available on your `%PATH%`.
+
 Finally, [download and install git.](https://git-scm.com/download/win) Make sure it's on your `%PATH%`.
 
 ### Getting The Code
