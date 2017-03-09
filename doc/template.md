@@ -57,3 +57,11 @@ As noted, `struct`, `union`, `interface`, `fn`, and `class`, are the types avail
     
     ...
     return integerAdd(40, 2);
+
+#Notes
+
+If there is one template argument or parameter, the parens can be omitted, both in template definitions and instances:
+
+    fn add!T(a: T, b: T) T { return a + b; }
+	alias intadd = add!i32;
+
