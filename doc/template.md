@@ -7,7 +7,7 @@ Volt does not wish to add a second template language ontop of itself, as in C++ 
 
 So what follows is a modest proposal to add simple mixin templates to Volt. A mixin template can be defined for `struct`s, `union`s, `interface`s, `fn`s, and `class`es.
 
-    struct LinkedList(T)
+    struct LinkedList!(T)
     {
         data: T;
         next: LinkedDoubleList*;
@@ -17,7 +17,7 @@ So what follows is a modest proposal to add simple mixin templates to Volt. A mi
 
 The simple example above demonstrates several things. A mixin template defines an identifier that is associated with a series of tokens. Multiple identifiers can be defined:
 
-    struct LinkedDoubleList(T, Y)
+    struct LinkedDoubleList!(T, Y)
     {
         data1: T;
         data2: Y;
@@ -32,7 +32,7 @@ As mentioned above, the mixin templates cannot be used directly. A function cann
 
 Like how we use the keyword `ref` when passing an argument to a parameter marked with `ref`, to make it obvious to the casual reader what is going on, every template initialisation expression starts with the kind of type it is defining. That is to say, `struct`, `union`, `interface`, `fn`, or `class`.
 
-    struct I32List = LinkedList!i32
+     struct I32List = LinkedList!i32
  
  A few notes about the above syntax. It goes without saying, that the type must match. `class I32List = ...` would of course, generate an error. The right hand side has the name of the template being instantiated, and then an exclamation mark to denote the beginning of the template parameters. The above is a short hand. The complete syntax is wrapped in parens.
  
@@ -48,7 +48,7 @@ The underlying mechanism is simple. The compiler copies the parameters to where 
 
 As noted, `struct`, `union`, `interface`, `fn`, and `class`, are the types available for templates.
 
-    fn add(T)(a: T, b: T) T
+    fn add!(T)(a: T, b: T) T
     {
         return a + b;
     }
