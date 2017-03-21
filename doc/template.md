@@ -44,6 +44,34 @@ As mentioned, the instantiation itself is not a type, so `LinkedList!i32*` is ta
 
 The underlying mechanism is simple. The compiler copies the parameters to where they are used, and a struct of the name given in the template instantiation expression is generated in the underlying IR. *The backend has no knowledge of templates, and the result is as if the user had typed in the resulting type themselves.*
 
+#Mixin
+
+When instantiating a template, you can optionally give the `mixin` keyword.
+
+    struct Instance = mixin Definition!(i32);
+
+What this keyword (or the lack thereof) determines is the context in which the template is instantiated. If the `mixin` keyword is given, the context is at the point of instantiation. For example, if we define a template that calls a library function.
+
+    struct Definition!(T)
+    {
+        fn foo()
+        {
+            writeln("hello");
+        }
+    }
+
+If we instantiate that without `mixin`
+
+    import watt.io;
+    struct Instance = Definition!i32;
+
+It won't work: the template will not 'see' the import. But if we add `mixin`
+
+    import watt.io;
+    struct Instance = mixin Definition!i32;
+
+It will work. Think of `mixin` like copy and paste.
+
 #Functions
 
 As noted, `struct`, `union`, `interface`, `fn`, and `class`, are the types available for templates.
