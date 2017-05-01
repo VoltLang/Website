@@ -93,3 +93,21 @@ If there is one template argument or parameter, the parens can be omitted, both 
     fn add!T(a: T, b: T) T { return a + b; }
 	alias intadd = add!i32;
 
+#Major Revision 1: Value Arguments
+
+The above limitations were never going considered to be set in stone, and value arguments to templates is useful enough, and simple enough (both in terms of user understanding and implementation) that they seem like a very low hanging fruit.
+
+The template definition is very easy to add values to.
+
+    struct Math!(pi: f64, T)
+    {
+        ...
+    }
+
+The above declares a templated struct definition Math that takes the value of Pi (hey, it might change), and a type T, as usual. The value (`pi`, in this case) can be used anywhere you'd use a constant. And can't be used where you couldn't use a constant. For instance, you can't take the address of `pi` -- it's not an lvalue.
+
+The definition is trivial, too.
+
+    struct MyMath = mixin Math!(3.1415926538, f64);
+
+The arguments to a value argument must be known at compile time. Rule of thumb: if you couldn't give it to an enum as a value, you can't use it in a template.
