@@ -38,7 +38,7 @@ Like how we use the keyword `ref` when passing an argument to a parameter marked
  
      struct I32List = LinkedList!(i32)
 
-The parameters must be an identifier, or the sigils that follow a standard type declaration (`*`, `[]`, etc). **A template cannot be instantiated by an instance of another template.** The philosophy here is to do the simplest thing that can possibly work, and no more. I believe that this will suffice for most uses. If I am wrong, they can be expanded in future. However, if we were to start with complexity, removing it later on would be impossible.
+The parameters must be an identifier, or the sigils that follow a standard type declaration (`*`, `[]`, etc).
 
 As mentioned, the instantiation itself is not a type, so `LinkedList!i32*` is taking a `i32*`, **not** a pointer to a `LinkedList!i32`. (Another good reason for avoiding the use of `alias` in template instantiation expressions).
 
