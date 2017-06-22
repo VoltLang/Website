@@ -6,10 +6,23 @@
  */
 
 /* Volt Website */
+@-ms-viewport {
+	width: device-width;
+}
+
+html {
+	min-height: 100%;
+	position: relative;
+}
+
 body {
+	line-height: 1;
+	margin: 0 0 80px 0;
 	border-top: 4px solid $volt-color-blue;
 	background: $volt-color-white;
+	font: 100%/1em $volt-font;
 }
+
 
 /* Used on all pages */
 header {
@@ -149,6 +162,7 @@ article {
 pre,
 code {
 	font-family: monospace;
+	line-height: 13px;
 	background-color: $volt-color-code-bg;
 	color: $volt-color-code-txt;
 	padding: 0px 3px; /* overwritten in pre */
