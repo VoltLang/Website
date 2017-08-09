@@ -183,14 +183,14 @@ code {
 }
 
 pre {
-	margin-left: 30px;
-	padding: 8px 0px 9px 30px;
-	overflow-x: auto;
 	margin-top: $article-tags-margin;
+	padding: 1ex;
+	padding-left: 1em;
+	overflow-x: auto;
 
 	> code {
 		background-color: transparent;
-		border: 0;
+		border: none;
 		padding: 0;
 	}
 }
