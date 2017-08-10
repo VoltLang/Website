@@ -1,13 +1,35 @@
 
-.vdoc-lnk {
+/* For the guru index page, black links. */
+.vdoc-lnk, .v_idxmodlnk {
 	color: $volt-black;
 	cursor: pointer;
 	text-decoration: none;
 }
 
-.vdoc-lnkblue {
+/* For the guru index page, blue links. */
+.vdoc-lnkblue, .v_idxnamelnk {
 	color: $volt-color-blue;
 	cursor: pointer;
 	text-decoration: none;
 	font-weight: bold;
+}
+
+/* For the module page, the in group listing. */
+.v_ingroup {
+	margin-top: 0.2em;
+	font-size: 75%;
+}
+
+/* For the module page, heading of the page. */
+.v_modproto {
+	margin-top: 1.75em;
+	font-family: $volt-font-mono;
+	font-size: 125%;
+}
+.v_modname {
+	font-weight: bold;
+}
+.v_modprefix {
+	color: $volt-color-darkgrey;
+	font-weight: normal;
 }

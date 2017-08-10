@@ -3,15 +3,18 @@
 ---
 @charset "utf-8";
 
+$volt-black: #1F1F1F;
 $volt-color-blue: #0098DB;
 $volt-color-white: #F0F0F0;
-$volt-black: #1F1F1F;
+$volt-color-darkgrey: #202020;
 $volt-color-code-bg: #4A4A4A;
 $volt-color-code-txt: white;
 $volt-color-code-border: #6F6F6F;
 $article-tags-margin: 0.5em;
 $volt-font-sans: 'Noto Sans', sans-serif;
 $volt-font-serif: 'Noto Serif', serif;
+$volt-font-mono: 'Roboto Mono', monospace;
+
 
 @import "reset";
 @import "layout";
