@@ -27,7 +27,7 @@ body {
 /* Used on all pages */
 header {
 	padding: 10px 10%;
-	background: $volt-black;
+	background: $volt-color-black;
 
 	nav {
 		float: right;
@@ -45,7 +45,7 @@ header {
 		a:hover,
 		a.active {
 			background: $volt-color-white;
-			color: $volt-black;
+			color: $volt-color-black;
 		}
 	}
 }
@@ -74,7 +74,7 @@ section.download {
 
 /* The big fancy text on the main page */
 section.hero {
-	background: $volt-black;
+	background: $volt-color-black;
 	padding: 10% 10%;
 
 	h1 {
@@ -208,7 +208,7 @@ footer {
 	right: 0;
 	bottom: 0;
 	height: 50px;
-	background: $volt-black;
+	background: $volt-color-black;
 	border-top: 4px solid $volt-color-blue;
 	padding: 10px 10%;
 

@@ -3,18 +3,23 @@
 ---
 @charset "utf-8";
 
-$volt-black: #1F1F1F;
+$volt-color-black: #1F1F1F;
 $volt-color-blue: #0098DB;
 $volt-color-white: #F0F0F0;
 $volt-color-darkgrey: #202020;
-$volt-color-code-bg: #4A4A4A;
-$volt-color-code-txt: white;
+
+$volt-color-code-bg: $volt-color-black;
+$volt-color-code-txt: $volt-color-white;
 $volt-color-code-border: #6F6F6F;
+$volt-color-child-border: #dadada;
+$volt-color-child-background: #eaeaea;
+$volt-color-proto-prefix: $volt-color-darkgrey;
+
 $article-tags-margin: 0.5em;
+
 $volt-font-sans: 'Noto Sans', sans-serif;
 $volt-font-serif: 'Noto Serif', serif;
 $volt-font-mono: 'Roboto Mono', monospace;
-
 
 @import "reset";
 @import "layout";
