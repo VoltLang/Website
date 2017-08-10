@@ -1,13 +1,36 @@
 
+/* For highlighting link targets. */
+@keyframes highlight {
+	from {
+		background: $volt-color-blue;
+	}
+	to {
+		background: $volt-color-white;
+	}
+}
+
+:target {
+	animation: highlight 2s ease;
+}
+
+/* For all code highlights. */
+a.code {
+	color: $volt-color-blue;
+	text-decoration: none;
+}
+a.code:hover {
+	text-decoration: underline;
+}
+
 /* For the guru index page, black links. */
-.vdoc-lnk, .v_idxmodlnk {
+.v_idxmodlnk {
 	color: $volt-color-black;
 	cursor: pointer;
 	text-decoration: none;
 }
 
 /* For the guru index page, blue links. */
-.vdoc-lnkblue, .v_idxnamelnk {
+.v_idxnamelnk {
 	color: $volt-color-blue;
 	cursor: pointer;
 	text-decoration: none;
@@ -58,6 +81,9 @@
 	border-top: none;
 	border-bottom-left-radius: 4px;
 	border-bottom-right-radius: 4px;
+}
+.v_paramtable {
+	margin-left: 2em;
 }
 
 /* For the proto types in the child header. */
