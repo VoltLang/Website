@@ -1,0 +1,31 @@
+---
+layout: page
+---
+
+{% assign likes = site.tags.like | reverse -%}
+{% assign intro = likes | first -%}
+{% for post in likes -%}
+	{% if post.url == page.url -%}
+		{%- assign next_i = forloop.index0 | plus: 1 %}
+		{%- assign prev_i = forloop.index0 | minus: 1 %}
+		{%- assign like_next = likes[next_i] %}
+		{%- assign like_prev = likes[prev_i] %}
+	{% endif -%}
+{% endfor -%}
+
+<p>This series was introduced <a href="{{ intro.url }}">here</a> and is ment to
+inform the reader about Volt in a easy to read and digest way.</p>
+
+<h1>{{ page.short_title }}</h1>
+
+{{ content }}
+
+<hr>
+<p>
+{%- if like_prev %}
+Previous <a href="{{ like_prev.url }}">{{ like_prev.short_title }}</a>.
+{%- endif -%}
+{% if like_next %}
+Next <a href="{{ like_next.url }}">{{ like_next.short_title }}</a>.
+{% endif -%}
+</p>

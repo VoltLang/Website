@@ -1,0 +1,18 @@
+---
+layout: page
+title: What to like about Volt!
+---
+
+{%- assign items = site.tags.like | reverse -%}
+
+<h1>Introduction</h1>
+
+{%- for post in items limit:1 %}
+{{ post.content }}
+{%- endfor -%}
+
+{%- for post in items offset:1 -%}
+<hr>
+<h3><a class="header" href="{{ post.url }}">{{ post.short_title }}</a></h3>
+{{ post.content }}
+{%- endfor -%}
