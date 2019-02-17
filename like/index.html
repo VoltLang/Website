@@ -3,15 +3,14 @@ layout: page
 title: What to like about Volt!
 ---
 
-{%- assign items = site.tags.like | reverse -%}
+{%- assign likes = site.tags.like | reverse -%}
+{%- assign intro = likes | first -%}
 
-<h1>Introduction</h1>
+<h1><a class="header" href="{{ intro.url }}">Introduction</a></h1>
 
-{%- for post in items limit:1 %}
-{{ post.content }}
-{%- endfor -%}
+{{ intro.content }}
 
-{%- for post in items offset:1 -%}
+{%- for post in likes offset:1 -%}
 <hr>
 <h3><a class="header" href="{{ post.url }}">{{ post.short_title }}</a></h3>
 {{ post.content }}
