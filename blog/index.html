@@ -1,0 +1,14 @@
+---
+layout: page
+title: Volt blog
+---
+
+{% for post in site.tags.main -%}
+
+{% unless forloop.first %}<hr>{% endunless -%}
+
+<h3><a class="header" href="{{ post.url }}">{{ post.title }}</a></h3>
+
+{{ post.content }}
+
+{% endfor %}
